@@ -39,6 +39,36 @@ public final class AnimationCompletable extends Completable implements OnAnimati
         this.animation = animation;
     }
 
+    /**
+     * Sets the action to perform once the animation starts.
+     * @param onAnimationStart Action to perform once animation starts.
+     * @return An instance of this completable with this action added.
+     */
+    public AnimationCompletable doOnAnimationStart(Consumer<View> onAnimationStart) {
+        this.doOnAnimationStart = onAnimationStart;
+        return this;
+    }
+
+    /**
+     * Sets the action to perform once the animation is canceled (doesn't end by itself but it interrupted).
+     * @param onAnimationCancel Action to perform once animation is canceled.
+     * @return An instance of this completable with this action added.
+     */
+    public AnimationCompletable doOnAnimationCancel(Consumer<View> onAnimationCancel) {
+        this.doOnAnimationCancel = onAnimationCancel;
+        return this;
+    }
+
+    /**
+     * Sets the action to perform once the animation ends (is not interrupted).
+     * @param onAnimationEnd Action to perform once animation is canceled.
+     * @return An instance of this completable with this action added.
+     */
+    public AnimationCompletable doOnAnimationEnd(Consumer<View> onAnimationEnd) {
+        this.doOnAnimationEnd = onAnimationEnd;
+        return this;
+    }
+
     /** {@inheritDoc} */
     @Override
     public void onAnimationDisposed() {

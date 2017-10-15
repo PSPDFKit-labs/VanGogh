@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Interpolator;
+import com.pspdfkit.vangogh.rx.AnimationCompletable;
 
 public class AnimationBuilder {
 
@@ -239,6 +240,11 @@ public class AnimationBuilder {
         return new Animation(view, alpha, alphaBy, rotation, rotationBy, rotationX, rotationXBy, rotationY, rotationYBy,
                 scaleX, scaleXBy, scaleY, scaleYBy, duration, interpolator, startDelay, translationX, translationXBy,
                 translationY, translationYBy, translationZ, translationZBy, x, xBy, y, yBy, z, zBy);
+    }
+
+    @NonNull
+    public AnimationCompletable buildCompletable() {
+        return build().toCompletable();
     }
 
 }

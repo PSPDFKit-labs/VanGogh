@@ -9,6 +9,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * Holds parameters for view animation. This class is immutable.
+ * It's recommended to use {@link AnimationBuilder} to create it.
  */
 public final class Animation {
 

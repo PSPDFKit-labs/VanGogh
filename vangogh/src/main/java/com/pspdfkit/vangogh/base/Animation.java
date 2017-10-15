@@ -105,4 +105,143 @@ public final class Animation {
         this.zBy = zBy;
     }
 
+    @NonNull
+    public WeakReference<View> getView() {
+        return view;
+    }
+
+    @Nullable
+    public Float getAlpha() {
+        return alpha;
+    }
+
+    @Nullable
+    public Float getAlphaBy() {
+        return alphaBy;
+    }
+
+    @Nullable
+    public Float getRotation() {
+        return rotation;
+    }
+
+    @Nullable
+    public Float getRotationBy() {
+        return rotationBy;
+    }
+
+    @Nullable
+    public Float getRotationX() {
+        return rotationX;
+    }
+
+    @Nullable
+    public Float getRotationXBy() {
+        return rotationXBy;
+    }
+
+    @Nullable
+    public Float getRotationY() {
+        return rotationY;
+    }
+
+    @Nullable
+    public Float getRotationYBy() {
+        return rotationYBy;
+    }
+
+    @Nullable
+    public Float getScaleX() {
+        return scaleX;
+    }
+
+    @Nullable
+    public Float getScaleXBy() {
+        return scaleXBy;
+    }
+
+    @Nullable
+    public Float getScaleY() {
+        return scaleY;
+    }
+
+    @Nullable
+    public Float getScaleYBy() {
+        return scaleYBy;
+    }
+
+    @Nullable
+    public Long getDuration() {
+        return duration;
+    }
+
+    @Nullable
+    public Interpolator getInterpolator() {
+        return interpolator;
+    }
+
+    @Nullable
+    public Long getStartDelay() {
+        return startDelay;
+    }
+
+    @Nullable
+    public Float getTranslationX() {
+        return translationX;
+    }
+
+    @Nullable
+    public Float getTranslationXBy() {
+        return translationXBy;
+    }
+
+    @Nullable
+    public Float getTranslationY() {
+        return translationY;
+    }
+
+    @Nullable
+    public Float getTranslationYBy() {
+        return translationYBy;
+    }
+
+    @Nullable
+    public Float getTranslationZ() {
+        return translationZ;
+    }
+
+    @Nullable
+    public Float getTranslationZBy() {
+        return translationZBy;
+    }
+
+    @Nullable
+    public Float getX() {
+        return x;
+    }
+
+    @Nullable
+    public Float getxBy() {
+        return xBy;
+    }
+
+    @Nullable
+    public Float getY() {
+        return y;
+    }
+
+    @Nullable
+    public Float getyBy() {
+        return yBy;
+    }
+
+    @Nullable
+    public Float getZ() {
+        return z;
+    }
+
+    @Nullable
+    public Float getzBy() {
+        return zBy;
+    }
 }

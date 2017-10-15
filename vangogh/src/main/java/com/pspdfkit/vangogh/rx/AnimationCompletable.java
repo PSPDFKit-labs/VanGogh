@@ -2,6 +2,7 @@ package com.pspdfkit.vangogh.rx;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.view.View;
 import com.pspdfkit.vangogh.base.Animation;
 import io.reactivex.Completable;
@@ -78,12 +79,51 @@ public final class AnimationCompletable extends Completable implements OnAnimati
 
     /** {@inheritDoc} */
     @Override
-    protected void subscribeActual(CompletableObserver observer) {
+    protected void subscribeActual(final CompletableObserver observer) {
         try {
             animator = startAnimation(animation);
         } catch (Exception e) {
             observer.onError(e);
         }
+
+        animator.setListener(new ViewPropertyAnimatorListener() {
+            @Override
+            public void onAnimationStart(View view) {
+                if (doOnAnimationStart != null) {
+                    try {
+                        doOnAnimationStart.accept(view);
+                    } catch (Exception e) {
+                        observer.onError(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(View view) {
+                if (doOnAnimationEnd != null) {
+                    try {
+                        doOnAnimationEnd.accept(view);
+                        observer.onComplete();
+                    } catch (Exception e) {
+                        observer.onError(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(View view) {
+                if (doOnAnimationCancel != null) {
+                    try {
+                        doOnAnimationCancel.accept(view);
+                        observer.onComplete();
+                    } catch (Exception e) {
+                        observer.onError(e);
+                    }
+                }
+            }
+        });
+
+        observer.onSubscribe(new AnimationDisposable(this));
     }
 
     /**

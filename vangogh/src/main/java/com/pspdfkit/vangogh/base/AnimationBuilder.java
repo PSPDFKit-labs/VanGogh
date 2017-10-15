@@ -234,4 +234,11 @@ public class AnimationBuilder {
         return this;
     }
 
+    @NonNull
+    public Animation build() {
+        return new Animation(view, alpha, alphaBy, rotation, rotationBy, rotationX, rotationXBy, rotationY, rotationYBy,
+                scaleX, scaleXBy, scaleY, scaleYBy, duration, interpolator, startDelay, translationX, translationXBy,
+                translationY, translationYBy, translationZ, translationZBy, x, xBy, y, yBy, z, zBy);
+    }
+
 }

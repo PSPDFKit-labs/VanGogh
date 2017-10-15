@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "com.pspdfkit.vangogh"
+        applicationId "com.example.vangogh"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    compile project(":vangogh")
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

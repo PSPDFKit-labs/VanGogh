@@ -5,10 +5,10 @@ android {
     buildToolsVersion "26.0.2"
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -22,10 +22,15 @@ android {
 }
 
 dependencies {
+    // Library dependencies
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    testCompile 'junit:junit:4.12'
+    compile libraries.supportAppCompat
+    compile libraries.rxJava
+    compile libraries.rxAndroid
+
+    // Android test dependencies
+    androidTestCompile libraries.espressoCore
+
+    // Test dependencies
+    testCompile libraries.junit
 }

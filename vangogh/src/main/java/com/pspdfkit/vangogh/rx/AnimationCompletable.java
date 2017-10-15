@@ -1,7 +1,8 @@
 package com.pspdfkit.vangogh.rx;
 
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
 import com.pspdfkit.vangogh.base.Animation;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
@@ -29,7 +30,7 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     @Nullable private Consumer<View> doOnAnimationEnd;
 
     /** Animator for the current running animation. */
-    @Nullable private ViewPropertyAnimator animator;
+    @Nullable private ViewPropertyAnimatorCompat animator;
 
     /**
      * Creates completable that runs provided animation once subscribed to.
@@ -77,8 +78,55 @@ public final class AnimationCompletable extends Completable implements OnAnimati
 
     /** {@inheritDoc} */
     @Override
-    protected void subscribeActual(CompletableObserver s) {
+    protected void subscribeActual(CompletableObserver observer) {
+        try {
+            animator = startAnimation(animation);
+        } catch (Exception e) {
+            observer.onError(e);
+        }
+    }
 
+    /**
+     * Starts the defined view animation.
+     * @return Animator for the started animation.
+     */
+    @NonNull
+    private ViewPropertyAnimatorCompat startAnimation(@NonNull Animation animation) throws Exception {
+        View view = animation.getView().get();
+        if (view == null) {
+            throw new Exception("Reference to a view scheduled" +
+                    "for animation no longer exists.");
+        }
+
+        ViewPropertyAnimatorCompat animator = ViewCompat.animate(view);
+        if (animation.getAlpha() != null) animator.alpha(animation.getAlpha());
+        if (animation.getAlphaBy() != null) animator.alphaBy(animation.getAlphaBy());
+        if (animation.getRotation() != null) animator.rotation(animation.getRotation());
+        if (animation.getRotationBy() != null) animator.rotationBy(animation.getRotationBy());
+        if (animation.getRotationX() != null) animator.rotationX(animation.getRotationX());
+        if (animation.getRotationXBy() != null) animator.rotationXBy(animation.getRotationXBy());
+        if (animation.getRotationY() != null) animator.rotationY(animation.getRotationY());
+        if (animation.getRotationYBy() != null) animator.rotationYBy(animation.getRotationYBy());
+        if (animation.getScaleX() != null) animator.scaleX(animation.getScaleX());
+        if (animation.getScaleXBy() != null) animator.scaleXBy(animation.getScaleXBy() );
+        if (animation.getScaleY() != null) animator.scaleY(animation.getScaleY());
+        if (animation.getScaleYBy() != null) animator.scaleYBy(animation.getScaleYBy());
+        if (animation.getDuration() != null) animator.setDuration(animation.getDuration());
+        if (animation.getInterpolator() != null) animator.setInterpolator(animation.getInterpolator());
+        if (animation.getStartDelay() != null) animator.setStartDelay(animation.getStartDelay());
+        if (animation.getTranslationX() != null) animator.translationX(animation.getTranslationX());
+        if (animation.getTranslationXBy() != null) animator.translationXBy(animation.getTranslationXBy());
+        if (animation.getTranslationY() != null) animator.translationY(animation.getTranslationY());
+        if (animation.getTranslationYBy() != null) animator.translationYBy(animation.getTranslationYBy());
+        if (animation.getTranslationZ() != null) animator.translationZ(animation.getTranslationZ());
+        if (animation.getTranslationZBy() != null) animator.translationZBy(animation.getTranslationZBy());
+        if (animation.getX() != null) animator.x(animation.getX());
+        if (animation.getxBy() != null) animator.xBy(animation.getxBy());
+        if (animation.getY() != null) animator.y(animation.getY());
+        if (animation.getyBy() != null) animator.yBy(animation.getyBy());
+        if (animation.getZ() != null) animator.z(animation.getZ());
+        if (animation.getzBy() != null) animator.zBy(animation.getzBy());
+        return animator;
     }
 
 }

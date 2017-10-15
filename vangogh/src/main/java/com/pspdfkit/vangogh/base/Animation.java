@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Interpolator;
+import com.pspdfkit.vangogh.rx.AnimationCompletable;
 
 import java.lang.ref.WeakReference;
 
@@ -243,6 +244,14 @@ public final class Animation {
     @Nullable
     public Float getZBy() {
         return zBy;
+    }
+
+    /**
+     * Convenience method for transforming this animation to {@link AnimationCompletable} you can subscribe to.
+     * @return Animation completable which will execute this animation once subscribed to.
+     */
+    public AnimationCompletable toCompletable() {
+        return new AnimationCompletable(this);
     }
     
 }

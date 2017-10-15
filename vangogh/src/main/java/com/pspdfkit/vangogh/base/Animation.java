@@ -221,7 +221,7 @@ public final class Animation {
     }
 
     @Nullable
-    public Float getxBy() {
+    public Float getXBy() {
         return xBy;
     }
 
@@ -231,7 +231,7 @@ public final class Animation {
     }
 
     @Nullable
-    public Float getyBy() {
+    public Float getYBy() {
         return yBy;
     }
 
@@ -241,7 +241,8 @@ public final class Animation {
     }
 
     @Nullable
-    public Float getzBy() {
+    public Float getZBy() {
         return zBy;
     }
+    
 }

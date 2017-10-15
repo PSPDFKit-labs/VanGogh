@@ -121,11 +121,11 @@ public final class AnimationCompletable extends Completable implements OnAnimati
         if (animation.getTranslationZ() != null) animator.translationZ(animation.getTranslationZ());
         if (animation.getTranslationZBy() != null) animator.translationZBy(animation.getTranslationZBy());
         if (animation.getX() != null) animator.x(animation.getX());
-        if (animation.getxBy() != null) animator.xBy(animation.getxBy());
+        if (animation.getXBy() != null) animator.xBy(animation.getXBy());
         if (animation.getY() != null) animator.y(animation.getY());
-        if (animation.getyBy() != null) animator.yBy(animation.getyBy());
+        if (animation.getYBy() != null) animator.yBy(animation.getYBy());
         if (animation.getZ() != null) animator.z(animation.getZ());
-        if (animation.getzBy() != null) animator.zBy(animation.getzBy());
+        if (animation.getZBy() != null) animator.zBy(animation.getZBy());
         return animator;
     }
 

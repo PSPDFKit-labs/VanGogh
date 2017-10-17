@@ -6,7 +6,10 @@ import com.pspdfkit.vangogh.base.AnimationBuilder;
 import com.pspdfkit.vangogh.rx.AnimationCompletable;
 import io.reactivex.annotations.NonNull;
 
-import static com.pspdfkit.vangogh.api.AnimationConstants.*;
+import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_INVISIBLE;
+import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_VISIBLE;
+import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
+import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
 
 /**
  * Class containing convenient fade animations.

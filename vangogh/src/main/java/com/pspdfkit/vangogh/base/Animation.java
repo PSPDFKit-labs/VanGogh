@@ -70,7 +70,7 @@ public final class Animation {
 
     @Nullable private final Float zBy;
 
-    public Animation(View view, Float alpha, Float alphaBy, Float rotation, Float rotationBy, Float rotationX,
+    Animation(View view, Float alpha, Float alphaBy, Float rotation, Float rotationBy, Float rotationX,
                      Float rotationXBy, Float rotationY, Float rotationYBy, Float scaleX, Float scaleXBy,
                      Float scaleY, Float scaleYBy, Long duration, Interpolator interpolator, Long startDelay,
                      Float translationX, Float translationXBy, Float translationY, Float translationYBy,

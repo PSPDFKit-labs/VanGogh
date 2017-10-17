@@ -8,8 +8,10 @@ import io.reactivex.annotations.NonNull;
 
 import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_INVISIBLE;
 import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_VISIBLE;
+import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_DEFAULT;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
+import static com.pspdfkit.vangogh.api.AnimationConstants.INTERPOLATOR;
 
 /**
  * Class containing convenient fade animations.

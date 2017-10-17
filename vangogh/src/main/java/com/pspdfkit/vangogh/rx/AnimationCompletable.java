@@ -21,13 +21,16 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     /** Animation to run once subscribed to this completable. */
     @NonNull private final Animation animation;
 
-    /** Action to perform when animation starts. */
+    /** Action to perform before the animation starts. */
+    @Nullable private Consumer<View> doOnAnimationReady;
+
+    /** Action to perform when the animation starts. */
     @Nullable private Consumer<View> doOnAnimationStart;
 
-    /** Action to perform when animation gets canceled before it ends. */
+    /** Action to perform when the animation gets canceled before it ends. */
     @Nullable private Consumer<View> doOnAnimationCancel;
 
-    /** Action to perform when animation ends without interruption. */
+    /** Action to perform when the animation ends without interruption. */
     @Nullable private Consumer<View> doOnAnimationEnd;
 
     /** Animator for the current running animation. */
@@ -39,6 +42,16 @@ public final class AnimationCompletable extends Completable implements OnAnimati
      */
     public AnimationCompletable(Animation animation) {
         this.animation = animation;
+    }
+
+    /**
+     * Sets the action to perform once the animation is ready to start.
+     * @param doOnAnimationReady Action to perform before the animation is ready to be started.
+     * @return An instance of this completable with this action added.
+     */
+    public AnimationCompletable doOnAnimationReady(Consumer<View> doOnAnimationReady) {
+        this.doOnAnimationReady = doOnAnimationReady;
+        return this;
     }
 
     /**
@@ -80,6 +93,15 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     /** {@inheritDoc} */
     @Override
     protected void subscribeActual(final CompletableObserver observer) {
+        View view = animation.getView().get();
+        if (doOnAnimationReady != null && view != null) {
+            try {
+                doOnAnimationReady.accept(view);
+            } catch (Exception e) {
+                observer.onError(e);
+            }
+        }
+
         try {
             animator = startAnimation(animation);
         } catch (Exception e) {

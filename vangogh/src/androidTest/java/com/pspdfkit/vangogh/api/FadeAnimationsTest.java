@@ -5,7 +5,6 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import com.pspdfkit.vangogh.view.TestActivity;
 import io.reactivex.observers.TestObserver;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,7 +12,9 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeIn;
 import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOut;
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeToAlpha;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
@@ -37,7 +38,7 @@ public class FadeAnimationsTest {
 
         // Set view to visible and then fade out.
         view.setAlpha(0f);
-        FadeAnimations.fadeIn(view).subscribe(o);
+        fadeIn(view).subscribe(o);
 
         // Wait for onComplete().
         o.awaitDone(2, TimeUnit.SECONDS);
@@ -57,7 +58,7 @@ public class FadeAnimationsTest {
 
         // Set view to visible and then fade out.
         view.setAlpha(0f);
-        FadeAnimations.fadeIn(view, duration).subscribe(o);
+        fadeIn(view, duration).subscribe(o);
 
         // Wait one second and make sure it's not completed.
         o.await(1, TimeUnit.SECONDS);
@@ -140,8 +141,8 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
-        view.setAlpha(.7f);
-        fadeOut(view).subscribe(o);
+        view.setAlpha(.0f);
+        fadeToAlpha(view, .7f).subscribe(o);
 
         // Wait for onComplete().
         o.awaitDone(2, TimeUnit.SECONDS);
@@ -160,8 +161,8 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
-        view.setAlpha(.7f);
-        fadeOut(view, duration).subscribe(o);
+        view.setAlpha(.0f);
+        fadeToAlpha(view, .7f, duration).subscribe(o);
 
         // Wait one second and make sure it's not completed.
         o.await(1, TimeUnit.SECONDS);

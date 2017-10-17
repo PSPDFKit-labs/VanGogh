@@ -16,59 +16,59 @@ public final class Animation {
 
     @NonNull private final WeakReference<View> view;
 
-    @Nullable private Float alpha;
+    @Nullable private final Float alpha;
 
-    @Nullable private Float alphaBy;
+    @Nullable private final Float alphaBy;
 
-    @Nullable private Float rotation;
+    @Nullable private final Float rotation;
 
-    @Nullable private Float rotationBy;
+    @Nullable private final Float rotationBy;
 
-    @Nullable private Float rotationX;
+    @Nullable private final Float rotationX;
 
-    @Nullable private Float rotationXBy;
+    @Nullable private final Float rotationXBy;
 
-    @Nullable private Float rotationY;
+    @Nullable private final Float rotationY;
 
-    @Nullable private Float rotationYBy;
+    @Nullable private final Float rotationYBy;
 
-    @Nullable private Float scaleX;
+    @Nullable private final Float scaleX;
 
-    @Nullable private Float scaleXBy;
+    @Nullable private final Float scaleXBy;
 
-    @Nullable private Float scaleY;
+    @Nullable private final Float scaleY;
 
-    @Nullable private Float scaleYBy;
+    @Nullable private final Float scaleYBy;
 
-    @Nullable private Long duration;
+    @Nullable private final Long duration;
 
-    @Nullable private Interpolator interpolator;
+    @Nullable private final Interpolator interpolator;
 
-    @Nullable private Long startDelay;
+    @Nullable private final Long startDelay;
 
-    @Nullable private Float translationX;
+    @Nullable private final Float translationX;
 
-    @Nullable private Float translationXBy;
+    @Nullable private final Float translationXBy;
 
-    @Nullable private Float translationY;
+    @Nullable private final Float translationY;
 
-    @Nullable private Float translationYBy;
+    @Nullable private final Float translationYBy;
 
-    @Nullable private Float translationZ;
+    @Nullable private final Float translationZ;
 
-    @Nullable private Float translationZBy;
+    @Nullable private final Float translationZBy;
 
-    @Nullable private Float x;
+    @Nullable private final Float x;
 
-    @Nullable private Float xBy;
+    @Nullable private final Float xBy;
 
-    @Nullable private Float y;
+    @Nullable private final Float y;
 
-    @Nullable private Float yBy;
+    @Nullable private final Float yBy;
 
-    @Nullable private Float z;
+    @Nullable private final Float z;
 
-    @Nullable private Float zBy;
+    @Nullable private final Float zBy;
 
     public Animation(View view, Float alpha, Float alphaBy, Float rotation, Float rotationBy, Float rotationX,
                      Float rotationXBy, Float rotationY, Float rotationYBy, Float scaleX, Float scaleXBy,

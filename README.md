@@ -63,7 +63,7 @@ AnimationBuilder.forView(someView)
 
 ## Chaining animations
 
-The main power of this approach is that it enables you to combine view animations with operators provided from RxJava2 library. That gives you powerful scheduling possibilities, for example:
+The main power of this approach is that it enables you to combine view animations with operators provided by RxJava2 library. That gives you powerful scheduling possibilities, for example:
 
 ```java
 private AnimationCompletable fadeIn(final View view) {

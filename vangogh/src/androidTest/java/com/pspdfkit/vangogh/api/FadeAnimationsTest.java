@@ -50,6 +50,40 @@ public class FadeAnimationsTest {
     }
 
     @Test
+    public void testFadeInWithDuration() throws InterruptedException {
+        final long duration = 1500L;
+
+        // Init test observer.
+        TestObserver o = new TestObserver();
+        o.assertNotComplete();
+
+        // Set view to visible and then fade out.
+        view.setAlpha(0f);
+        FadeAnimations.fadeIn(view, duration).subscribe(o);
+
+        // Wait one second and make sure it's not completed.
+        o.await(1, TimeUnit.SECONDS);
+        o.assertNotComplete();
+
+        // Wait another second and make sure it's completed.
+        o.await(1, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        // Assert view invisible.
+        Assert.assertEquals(1f, view.getAlpha(), 0f);
+    }
+
+    @Test
+    public void testFadeInWithInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testFadeInWithDurationAndInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
     public void testFadeOut() {
         // Init test observer.
         TestObserver o = new TestObserver();

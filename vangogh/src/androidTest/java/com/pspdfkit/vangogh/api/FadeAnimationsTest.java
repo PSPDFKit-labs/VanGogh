@@ -13,6 +13,9 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOut;
+import static org.junit.Assert.assertEquals;
+
 @RunWith(AndroidJUnit4.class)
 public class FadeAnimationsTest {
 
@@ -41,7 +44,7 @@ public class FadeAnimationsTest {
         o.assertComplete();
 
         // Assert view invisible.
-        Assert.assertEquals(1f, view.getAlpha(), 0f);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -65,7 +68,7 @@ public class FadeAnimationsTest {
         o.assertComplete();
 
         // Assert view invisible.
-        Assert.assertEquals(1f, view.getAlpha(), 0f);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -86,14 +89,14 @@ public class FadeAnimationsTest {
 
         // Set view to visible and then fade out.
         view.setAlpha(1f);
-        FadeAnimations.fadeOut(view).subscribe(o);
+        fadeOut(view).subscribe(o);
 
         // Wait for onComplete().
         o.awaitDone(2, TimeUnit.SECONDS);
         o.assertComplete();
 
         // Assert view invisible.
-        Assert.assertEquals(0f, view.getAlpha(), 0f);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -106,7 +109,7 @@ public class FadeAnimationsTest {
 
         // Set view to visible and then fade out.
         view.setAlpha(1f);
-        FadeAnimations.fadeOut(view, duration).subscribe(o);
+        fadeOut(view, duration).subscribe(o);
 
         // Wait one second and make sure it's not completed.
         o.await(1, TimeUnit.SECONDS);
@@ -117,7 +120,7 @@ public class FadeAnimationsTest {
         o.assertComplete();
 
         // Assert view invisible.
-        Assert.assertEquals(0f, view.getAlpha(), 0f);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -127,6 +130,58 @@ public class FadeAnimationsTest {
 
     @Test
     public void testFadeOutWithDurationAndInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testFadeToAlpha() {
+        // Init test observer.
+        TestObserver o = new TestObserver();
+        o.assertNotComplete();
+
+        // Set view to visible and then fade out.
+        view.setAlpha(.7f);
+        fadeOut(view).subscribe(o);
+
+        // Wait for onComplete().
+        o.awaitDone(2, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        // Assert view invisible.
+        assertEquals(.7f, view.getAlpha(), 0f);
+    }
+
+    @Test
+    public void testFadeToAlphaWithDuration() throws InterruptedException {
+        final long duration = 1500L;
+
+        // Init test observer.
+        TestObserver o = new TestObserver();
+        o.assertNotComplete();
+
+        // Set view to visible and then fade out.
+        view.setAlpha(.7f);
+        fadeOut(view, duration).subscribe(o);
+
+        // Wait one second and make sure it's not completed.
+        o.await(1, TimeUnit.SECONDS);
+        o.assertNotComplete();
+
+        // Wait another second and make sure it's completed.
+        o.await(1, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        // Assert view invisible.
+        assertEquals(.7f, view.getAlpha(), 0f);
+    }
+
+    @Test
+    public void testFadeToAlphaWithInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testFadeToAlphaWithDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 

@@ -12,7 +12,7 @@ It also provides various pre-made commonly used animations such as fading, rotat
 
 The base class for animations is the `Animation` class. If is immutable and it holds the single animation parameters needed for the execution.
 
-It comes with `AnimationBuilder` which is the recommended way to construct `Animation` objects.
+It comes with `AnimationBuilder` which is used to construct `Animation` objects.
 
 RxJava wrapper for `Animation` is `AnimationCompletable` which performs the given `Animation` once subscribed to and stops the animation if subscription (now `Disposable`) is disposed while animation is still executing. It also allows you to define specific actions for when the animation is started, resumed or cancelled so you don't have to register any `ViewPropertyAnimatorListener`s by hand.
 

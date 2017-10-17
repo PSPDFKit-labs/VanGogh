@@ -87,7 +87,11 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     /** {@inheritDoc} */
     @Override
     public void onAnimationDisposed() {
-
+        if (animator != null) {
+            animator.cancel();
+            animator.setListener(null);
+            animator = null;
+        }
     }
 
     /** {@inheritDoc} */

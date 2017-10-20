@@ -1,5 +1,6 @@
 package com.pspdfkit.vangogh.api;
 
+import android.support.test.annotation.UiThreadTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
@@ -36,7 +37,7 @@ public class FadeAnimationsTest {
         view = activityRule.getActivity().findViewById(com.pspdfkit.vangogh.test.R.id.view);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeIn() {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -54,7 +55,7 @@ public class FadeAnimationsTest {
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInWithDuration() throws InterruptedException {
         final long duration = 1500L;
 
@@ -78,17 +79,17 @@ public class FadeAnimationsTest {
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInWithDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInQuick() throws InterruptedException {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -110,12 +111,12 @@ public class FadeAnimationsTest {
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInQuickWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInSlow() throws InterruptedException {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -137,12 +138,12 @@ public class FadeAnimationsTest {
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeInSlowWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOut() {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -160,7 +161,7 @@ public class FadeAnimationsTest {
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutWithDuration() throws InterruptedException {
         final long duration = 1500L;
 
@@ -184,17 +185,17 @@ public class FadeAnimationsTest {
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutWithDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutQuick() throws InterruptedException {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -217,12 +218,12 @@ public class FadeAnimationsTest {
 
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutQuickWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutSlow() throws InterruptedException {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -244,12 +245,12 @@ public class FadeAnimationsTest {
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeOutSlowWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeToAlpha() {
         // Init test observer.
         TestObserver o = new TestObserver();
@@ -267,7 +268,7 @@ public class FadeAnimationsTest {
         assertEquals(.7f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeToAlphaWithDuration() throws InterruptedException {
         final long duration = 1500L;
 
@@ -291,12 +292,12 @@ public class FadeAnimationsTest {
         assertEquals(.7f, view.getAlpha(), 0f);
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeToAlphaWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
-    @Test
+    @Test @UiThreadTest
     public void testFadeToAlphaWithDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }

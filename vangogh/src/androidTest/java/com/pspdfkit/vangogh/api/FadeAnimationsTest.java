@@ -71,7 +71,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.await(duration, TimeUnit.MILLISECONDS);
+        o.await(duration + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -103,7 +103,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait more than needed duration and make sure it's completed.
-        o.await(DURATION_QUICK, TimeUnit.MILLISECONDS);
+        o.await(DURATION_QUICK + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -130,7 +130,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait more than needed duration and make sure it's completed.
-        o.await(DURATION_SLOW, TimeUnit.MILLISECONDS);
+        o.await(DURATION_SLOW + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -177,7 +177,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.await(duration, TimeUnit.MILLISECONDS);
+        o.await(duration + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -209,7 +209,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait more than needed duration and make sure it's completed.
-        o.await(DURATION_QUICK, TimeUnit.MILLISECONDS);
+        o.await(DURATION_QUICK + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -237,7 +237,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait more than needed duration and make sure it's completed.
-        o.await(DURATION_SLOW, TimeUnit.MILLISECONDS);
+        o.await(DURATION_SLOW + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -284,7 +284,7 @@ public class FadeAnimationsTest {
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.await(duration, TimeUnit.MILLISECONDS);
+        o.await(duration + 500, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.

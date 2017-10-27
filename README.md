@@ -96,7 +96,7 @@ VanGogh provides some pre-made common animations and schedulers. Look for those 
 import static com.pspdfkit.vangogh.api.FadeAnimations.*;
 
 // Quick and slow fade are implementations with some pre-defined durations.
-FadeAnimations.fadeInQuick(view1).andThen(FadeAnimations.fadeOutSlow(view2)).subscribe();
+fadeInQuick(view1).andThen(fadeOutSlow(view2)).subscribe();
 ```
 
 Or if you use schedulers from `AnimationSchedulers` class:

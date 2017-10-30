@@ -1,13 +1,12 @@
 package com.pspdfkit.vangogh.api;
 
 import android.support.test.runner.AndroidJUnit4;
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.pspdfkit.vangogh.api.TranslateAnimations.translateBy;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateQuicklyTo;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateSlowlyTo;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateTo;
@@ -107,6 +106,90 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateSlowlyToWithInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testTranslateBy() throws InterruptedException {
+        o.assertNotComplete();
+
+        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+
+        o.await(AnimationConstants.DURATION_DEFAULT / 2, TimeUnit.MILLISECONDS);
+        o.assertNotComplete();
+
+        o.awaitDone(2, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
+        assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
+    }
+
+    @Test
+    public void testTranslateByWithDuration() throws InterruptedException {
+        o.assertNotComplete();
+
+        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+
+        o.await(TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
+        o.assertNotComplete();
+
+        o.awaitDone(2, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
+        assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
+    }
+
+    @Test
+    public void testTranslateByWithInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testTranslateByWithDurationAndInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testTranslateQuicklyBy() throws InterruptedException {
+        o.assertNotComplete();
+
+        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+
+        o.await(AnimationConstants.DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
+        o.assertNotComplete();
+
+        o.awaitDone(2, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
+        assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
+    }
+
+    @Test
+    public void testTranslateQuicklyByWithInterpolator() {
+        // TODO Find a way to test interpolator.
+    }
+
+    @Test
+    public void testTranslateSlowlyBy() throws InterruptedException {
+        o.assertNotComplete();
+
+        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+
+        o.await(AnimationConstants.DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
+        o.assertNotComplete();
+
+        o.awaitDone(2, TimeUnit.SECONDS);
+        o.assertComplete();
+
+        assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
+        assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
+    }
+
+    @Test
+    public void testTranslateSlowlyByWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 

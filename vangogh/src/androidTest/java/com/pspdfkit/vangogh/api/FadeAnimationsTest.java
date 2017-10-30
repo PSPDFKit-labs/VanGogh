@@ -1,12 +1,6 @@
 package com.pspdfkit.vangogh.api;
 
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.View;
-import com.pspdfkit.vangogh.view.TestActivity;
-import io.reactivex.observers.TestObserver;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,22 +18,10 @@ import static com.pspdfkit.vangogh.api.FadeAnimations.fadeToAlpha;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
-public class FadeAnimationsTest {
-
-    @Rule
-    public ActivityTestRule<TestActivity> activityRule = new ActivityTestRule<>(TestActivity.class);
-
-    private View view;
-
-    @Before
-    public void setUp() {
-        view = activityRule.getActivity().findViewById(com.pspdfkit.vangogh.test.R.id.view);
-    }
+public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeIn() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -69,8 +51,6 @@ public class FadeAnimationsTest {
     public void testFadeInWithDuration() throws Throwable {
         final long duration = 1500L;
 
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -110,9 +90,7 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeInQuick() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
+    public void testFadeInQuickly() throws Throwable {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -122,7 +100,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        FadeAnimations.fadeInQuickly(view).subscribe(o);
+        fadeInQuickly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
@@ -142,14 +120,12 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeInQuickWithInterpolator() {
+    public void testFadeInQuicklyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
-    public void testFadeInSlow() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
+    public void testFadeInSlowly() throws Throwable {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -159,7 +135,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        FadeAnimations.fadeInSlowly(view).subscribe(o);
+        fadeInSlowly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
@@ -179,14 +155,12 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeInSlowWithInterpolator() {
+    public void testFadeInSlowlyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testFadeOut() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -215,8 +189,6 @@ public class FadeAnimationsTest {
     public void testFadeOutWithDuration() throws Throwable {
         final long duration = 1500L;
 
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -256,9 +228,7 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeOutQuick() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
+    public void testFadeOutQuickly() throws Throwable {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -268,7 +238,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(1f);
             }
         });
-        FadeAnimations.fadeOutQuickly(view).subscribe(o);
+        fadeOutQuickly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
@@ -288,14 +258,12 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeOutQuickWithInterpolator() {
+    public void testFadeOutQuicklyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
-    public void testFadeOutSlow() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
+    public void testFadeOutSlowly() throws Throwable {
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -305,7 +273,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(1f);
             }
         });
-        FadeAnimations.fadeOutSlowly(view).subscribe(o);
+        fadeOutSlowly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
@@ -325,14 +293,12 @@ public class FadeAnimationsTest {
     }
 
     @Test
-    public void testFadeOutSlowWithInterpolator() {
+    public void testFadeOutSlowlyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testFadeToAlpha() throws Throwable {
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -361,8 +327,6 @@ public class FadeAnimationsTest {
     public void testFadeToAlphaWithDuration() throws Throwable {
         final long duration = 1500L;
 
-        // Init test observer.
-        TestObserver o = new TestObserver();
         o.assertNotComplete();
 
         // Set view to visible and then fade out.

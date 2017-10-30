@@ -16,7 +16,7 @@ import static com.pspdfkit.vangogh.api.AnimationConstants.INTERPOLATOR;
 /**
  * Class containing convenient fade animations.
  */
-public class FadeAnimations {
+public final class FadeAnimations {
 
     /**
      * Fades in the given view.
@@ -63,7 +63,7 @@ public class FadeAnimations {
      * @param view View to fade in.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeInQuick(@NonNull View view) {
+    public static AnimationCompletable fadeInQuickly(@NonNull View view) {
         return fadeIn(view, DURATION_QUICK);
     }
 
@@ -73,7 +73,7 @@ public class FadeAnimations {
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeInQuick(@NonNull View view, Interpolator interpolator) {
+    public static AnimationCompletable fadeInQuickly(@NonNull View view, Interpolator interpolator) {
         return fadeIn(view, DURATION_QUICK, interpolator);
     }
 
@@ -82,7 +82,7 @@ public class FadeAnimations {
      * @param view View to fade in.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeInSlow(@NonNull View view) {
+    public static AnimationCompletable fadeInSlowly(@NonNull View view) {
         return fadeIn(view, DURATION_SLOW);
     }
 
@@ -92,7 +92,7 @@ public class FadeAnimations {
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeInSlow(@NonNull View view, Interpolator interpolator) {
+    public static AnimationCompletable fadeInSlowly(@NonNull View view, Interpolator interpolator) {
         return fadeIn(view, DURATION_SLOW, interpolator);
     }
 
@@ -141,7 +141,7 @@ public class FadeAnimations {
      * @param view View to fade out.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeOutQuick(@NonNull View view) {
+    public static AnimationCompletable fadeOutQuickly(@NonNull View view) {
         return fadeOut(view, DURATION_QUICK);
     }
 
@@ -151,7 +151,7 @@ public class FadeAnimations {
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeOutQuick(@NonNull View view, Interpolator interpolator) {
+    public static AnimationCompletable fadeOutQuickly(@NonNull View view, Interpolator interpolator) {
         return fadeOut(view, DURATION_QUICK, interpolator);
     }
 
@@ -160,7 +160,7 @@ public class FadeAnimations {
      * @param view View to fade out.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeOutSlow(@NonNull View view) {
+    public static AnimationCompletable fadeOutSlowly(@NonNull View view) {
         return fadeOut(view, DURATION_SLOW);
     }
 
@@ -170,7 +170,7 @@ public class FadeAnimations {
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
      */
-    public static AnimationCompletable fadeOutSlow(@NonNull View view, Interpolator interpolator) {
+    public static AnimationCompletable fadeOutSlowly(@NonNull View view, Interpolator interpolator) {
         return fadeOut(view, DURATION_SLOW, interpolator);
     }
 

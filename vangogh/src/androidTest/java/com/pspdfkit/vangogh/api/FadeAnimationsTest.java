@@ -15,11 +15,11 @@ import java.util.concurrent.TimeUnit;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
 import static com.pspdfkit.vangogh.api.FadeAnimations.fadeIn;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInQuick;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInSlow;
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInQuickly;
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInSlowly;
 import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOut;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutQuick;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutSlow;
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutQuickly;
+import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutSlowly;
 import static com.pspdfkit.vangogh.api.FadeAnimations.fadeToAlpha;
 import static org.junit.Assert.assertEquals;
 
@@ -122,7 +122,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        fadeInQuick(view).subscribe(o);
+        FadeAnimations.fadeInQuickly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
@@ -159,7 +159,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        fadeInSlow(view).subscribe(o);
+        FadeAnimations.fadeInSlowly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
@@ -268,7 +268,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(1f);
             }
         });
-        fadeOutQuick(view).subscribe(o);
+        FadeAnimations.fadeOutQuickly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
@@ -305,7 +305,7 @@ public class FadeAnimationsTest {
                 view.setAlpha(1f);
             }
         });
-        fadeOutSlow(view).subscribe(o);
+        FadeAnimations.fadeOutSlowly(view).subscribe(o);
 
         // Wait half of duration and make sure it's not completed.
         o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);

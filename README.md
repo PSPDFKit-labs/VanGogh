@@ -1,8 +1,6 @@
 # VanGogh [![Build Status](https://travis-ci.org/PSPDFKit-labs/VanGogh.svg?branch=master)](https://travis-ci.org/PSPDFKit-labs/VanGogh)
 
-Great things are done by a series of small things brought together. RxJava meets Animations.
-
-## Introduction
+*Great things are done by a series of small things brought together. RxJava meets Animations.*
 
 VanGogh is a lightweight library that takes Android view animation logic and binds it with RxJava2, providing a simple and powerful API for manipulating animations workflow.
 

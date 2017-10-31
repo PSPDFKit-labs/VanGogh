@@ -1,6 +1,5 @@
 package com.pspdfkit.vangogh.api;
 
-import com.pspdfkit.vangogh.rx.AnimationCompletable;
 import io.reactivex.Completable;
 
 /**

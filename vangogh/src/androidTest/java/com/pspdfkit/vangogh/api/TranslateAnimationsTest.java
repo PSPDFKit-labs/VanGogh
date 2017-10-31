@@ -23,8 +23,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     private static final float TRANSLATE_BY_Y_VALUE = 20f;
 
-    private static final long TEST_DURATION_MS = 1300L;
-
     @Test
     public void testTranslateTo() throws InterruptedException {
         o.assertNotComplete();
@@ -34,7 +32,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_DEFAULT / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(AnimationConstants.DURATION_DEFAULT * 2, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -45,12 +43,12 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     public void testTranslateToWithDuration() throws InterruptedException {
         o.assertNotComplete();
 
-        translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE, TEST_DURATION_MS).subscribe(o);
+        translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
 
-        o.await(TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
+        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(CUSTOM_TEST_DURATION_MS * 2, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -76,7 +74,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * AnimationConstants.DURATION_QUICK, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -97,7 +95,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * AnimationConstants.DURATION_SLOW, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -118,7 +116,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_DEFAULT / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * AnimationConstants.DURATION_DEFAULT, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -129,12 +127,12 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     public void testTranslateByWithDuration() throws InterruptedException {
         o.assertNotComplete();
 
-        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
 
-        o.await(TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
+        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * CUSTOM_TEST_DURATION_MS, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -160,7 +158,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * AnimationConstants.DURATION_QUICK, TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -181,7 +179,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
         o.await(AnimationConstants.DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
-        o.awaitDone(2, TimeUnit.SECONDS);
+        o.awaitDone(2 * AnimationConstants.DURATION_SLOW , TimeUnit.SECONDS);
         o.assertComplete();
 
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);

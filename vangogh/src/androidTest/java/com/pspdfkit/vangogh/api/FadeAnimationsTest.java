@@ -49,8 +49,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeInWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -60,14 +58,14 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        fadeIn(view, duration).subscribe(o);
+        fadeIn(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
 
         // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
+        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.awaitDone(duration * 2, TimeUnit.MILLISECONDS);
+        o.awaitDone(CUSTOM_TEST_DURATION_MS * 2, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -187,8 +185,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeOutWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -198,14 +194,14 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
                 view.setAlpha(1f);
             }
         });
-        fadeOut(view, duration).subscribe(o);
+        fadeOut(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
 
         // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
+        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.awaitDone(duration * 2, TimeUnit.MILLISECONDS);
+        o.awaitDone(CUSTOM_TEST_DURATION_MS * 2, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.
@@ -325,8 +321,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeToAlphaWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
 
         // Set view to visible and then fade out.
@@ -336,14 +330,14 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
                 view.setAlpha(0f);
             }
         });
-        fadeToAlpha(view, .7f, duration).subscribe(o);
+        fadeToAlpha(view, .7f, CUSTOM_TEST_DURATION_MS).subscribe(o);
 
         // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
+        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
 
         // Wait another second and make sure it's completed.
-        o.awaitDone(2 * duration, TimeUnit.MILLISECONDS);
+        o.awaitDone(2 * CUSTOM_TEST_DURATION_MS, TimeUnit.MILLISECONDS);
         o.assertComplete();
 
         // Assert view invisible.

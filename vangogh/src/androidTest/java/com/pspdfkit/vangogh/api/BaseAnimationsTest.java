@@ -13,14 +13,17 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public abstract class BaseAnimationsTest {
 
-    @Rule
-    public ActivityTestRule<TestActivity> activityRule = new ActivityTestRule<>(TestActivity.class);
+    /** Used for testing animations with custom duration. */
+    protected static final long CUSTOM_TEST_DURATION_MS = 1300L;
 
-    @NonNull
-    protected View view;
+    /** Activity rule for the {@link TestActivity} that holds the view to be animated. */
+    @Rule public ActivityTestRule<TestActivity> activityRule = new ActivityTestRule<>(TestActivity.class);
 
-    @NonNull
-    protected TestObserver o;
+    /** View being animated in tests. */
+    @NonNull protected View view;
+
+    /** Test observer used for catching all the events. */
+    @NonNull protected TestObserver o;
 
     @Before
     public void setUp() {

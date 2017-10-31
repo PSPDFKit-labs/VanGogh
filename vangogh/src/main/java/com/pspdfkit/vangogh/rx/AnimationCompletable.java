@@ -133,8 +133,9 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                     } catch (Exception e) {
                         observer.onError(e);
                     }
+                } else {
+                    observer.onComplete();
                 }
-                observer.onComplete();
             }
 
             @Override
@@ -145,8 +146,9 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                     } catch (Exception e) {
                         observer.onError(e);
                     }
+                } else {
+                    observer.onComplete();
                 }
-                observer.onComplete();
             }
         });
 

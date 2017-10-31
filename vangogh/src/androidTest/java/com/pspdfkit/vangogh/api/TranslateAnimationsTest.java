@@ -4,10 +4,10 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateBy;
+import static com.pspdfkit.vangogh.api.TranslateAnimations.translateQuicklyBy;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateQuicklyTo;
+import static com.pspdfkit.vangogh.api.TranslateAnimations.translateSlowlyBy;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateSlowlyTo;
 import static com.pspdfkit.vangogh.api.TranslateAnimations.translateTo;
 import static org.junit.Assert.assertEquals;
@@ -26,15 +26,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateTo() throws InterruptedException {
         o.assertNotComplete();
-
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_DEFAULT / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(AnimationConstants.DURATION_DEFAULT * 2, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -42,15 +35,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateToWithDuration() throws InterruptedException {
         o.assertNotComplete();
-
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
-
-        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(CUSTOM_TEST_DURATION_MS * 2, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -68,15 +54,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateQuicklyTo() throws InterruptedException {
         o.assertNotComplete();
-
         translateQuicklyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * AnimationConstants.DURATION_QUICK, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -89,15 +68,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateSlowlyTo() throws InterruptedException {
         o.assertNotComplete();
-
         translateSlowlyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * AnimationConstants.DURATION_SLOW, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -110,15 +82,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateBy() throws InterruptedException {
         o.assertNotComplete();
-
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_DEFAULT / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * AnimationConstants.DURATION_DEFAULT, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -126,15 +91,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateByWithDuration() throws InterruptedException {
         o.assertNotComplete();
-
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
-
-        o.await(CUSTOM_TEST_DURATION_MS / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * CUSTOM_TEST_DURATION_MS, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -152,15 +110,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateQuicklyBy() throws InterruptedException {
         o.assertNotComplete();
-
-        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * AnimationConstants.DURATION_QUICK, TimeUnit.SECONDS);
-        o.assertComplete();
-
+        translateQuicklyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -173,15 +124,8 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateSlowlyBy() throws InterruptedException {
         o.assertNotComplete();
-
-        translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-
-        o.await(AnimationConstants.DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        o.awaitDone(2 * AnimationConstants.DURATION_SLOW , TimeUnit.SECONDS);
-        o.assertComplete();
-
+        translateSlowlyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }

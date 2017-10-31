@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.TimeUnit;
+
 @RunWith(AndroidJUnit4.class)
 public abstract class BaseAnimationsTest {
 
@@ -29,6 +31,18 @@ public abstract class BaseAnimationsTest {
     public void setUp() {
         view = activityRule.getActivity().findViewById(com.pspdfkit.vangogh.test.R.id.view);
         o = new TestObserver();
+    }
+
+    /**
+     * Tests that the test observer was completed after specified duration, but not before.
+     * @param durationMs Duration in millis.
+     */
+    protected void assertTestObserverCompletedAfterDuration(long durationMs) throws InterruptedException {
+        o.await(durationMs - 10, TimeUnit.MILLISECONDS);
+        o.assertNotComplete();
+
+        o.awaitDone(2 * durationMs, TimeUnit.SECONDS);
+        o.assertComplete();
     }
 
 }

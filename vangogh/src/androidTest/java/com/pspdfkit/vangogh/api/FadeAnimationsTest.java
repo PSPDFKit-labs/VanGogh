@@ -4,8 +4,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.TimeUnit;
-
+import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_DEFAULT;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
 import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
 import static com.pspdfkit.vangogh.api.FadeAnimations.fadeIn;
@@ -23,8 +22,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeIn() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -32,51 +29,23 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeIn(view).subscribe(o);
-
-        // Wait for onComplete().
-        o.awaitDone(20, TimeUnit.SECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(1f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
 
     @Test
     public void testFadeInWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 view.setAlpha(0f);
             }
         });
-        fadeIn(view, duration).subscribe(o);
-
-        // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait another second and make sure it's completed.
-        o.awaitDone(duration * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(1f, view.getAlpha(), 0f);
-            }
-        });
+        fadeIn(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
+        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -92,8 +61,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeInQuickly() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -101,22 +68,8 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeInQuickly(view).subscribe(o);
-
-        // Wait half of duration and make sure it's not completed.
-        o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait more than needed duration and make sure it's completed.
-        o.awaitDone(DURATION_QUICK * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(1f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(DURATION_QUICK);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -127,8 +80,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeInSlowly() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -136,22 +87,8 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeInSlowly(view).subscribe(o);
-
-        // Wait half of duration and make sure it's not completed.
-        o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait more than needed duration and make sure it's completed.
-        o.awaitDone(DURATION_SLOW * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(1f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(DURATION_SLOW);
+        assertEquals(1f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -162,8 +99,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeOut() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -171,50 +106,22 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeOut(view).subscribe(o);
-
-        // Wait for onComplete().
-        o.awaitDone(2, TimeUnit.SECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(0f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
     public void testFadeOutWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 view.setAlpha(1f);
             }
         });
-        fadeOut(view, duration).subscribe(o);
-
-        // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait another second and make sure it's completed.
-        o.awaitDone(duration * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(0f, view.getAlpha(), 0f);
-            }
-        });
+        fadeOut(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
+        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -230,31 +137,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeOutQuickly() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                view.setAlpha(1f);
-            }
-        });
         fadeOutQuickly(view).subscribe(o);
-
-        // Wait half of duration and make sure it's not completed.
-        o.await(DURATION_QUICK / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait more than needed duration and make sure it's completed.
-        o.awaitDone(DURATION_QUICK * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(0f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(DURATION_QUICK);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -265,8 +150,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeOutSlowly() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -274,22 +157,8 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeOutSlowly(view).subscribe(o);
-
-        // Wait half of duration and make sure it's not completed.
-        o.await(DURATION_SLOW / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait more than needed duration and make sure it's completed.
-        o.awaitDone(DURATION_SLOW * 2, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(0f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(DURATION_SLOW);
+        assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
@@ -300,8 +169,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeToAlpha() throws Throwable {
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -309,50 +176,22 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeToAlpha(view, .7f).subscribe(o);
-
-        // Wait for onComplete().
-        o.awaitDone(2, TimeUnit.SECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(.7f, view.getAlpha(), 0f);
-            }
-        });
+        assertTestObserverCompletedAfterDuration(DURATION_DEFAULT);
+        assertEquals(.7f, view.getAlpha(), 0f);
     }
 
     @Test
     public void testFadeToAlphaWithDuration() throws Throwable {
-        final long duration = 1500L;
-
         o.assertNotComplete();
-
-        // Set view to visible and then fade out.
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 view.setAlpha(0f);
             }
         });
-        fadeToAlpha(view, .7f, duration).subscribe(o);
-
-        // Wait one second and make sure it's not completed.
-        o.await(duration/2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-
-        // Wait another second and make sure it's completed.
-        o.awaitDone(2 * duration, TimeUnit.MILLISECONDS);
-        o.assertComplete();
-
-        // Assert view invisible.
-        activityRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                assertEquals(.7f, view.getAlpha(), 0f);
-            }
-        });
+        fadeToAlpha(view, .7f, CUSTOM_TEST_DURATION_MS).subscribe(o);
+        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        assertEquals(.7f, view.getAlpha(), 0f);
     }
 
     @Test

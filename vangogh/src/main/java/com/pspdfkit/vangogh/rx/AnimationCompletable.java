@@ -129,13 +129,14 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                 if (doOnAnimationEnd != null) {
                     try {
                         doOnAnimationEnd.accept(view);
-                        observer.onComplete();
                     } catch (Exception e) {
                         observer.onError(e);
                     }
-                } else {
-                    observer.onComplete();
                 }
+
+                animator.setListener(null);
+                animator = null;
+                observer.onComplete();
             }
 
             @Override
@@ -146,9 +147,11 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                     } catch (Exception e) {
                         observer.onError(e);
                     }
-                } else {
-                    observer.onComplete();
                 }
+
+                animator.setListener(null);
+                animator = null;
+                observer.onComplete();
             }
         });
 

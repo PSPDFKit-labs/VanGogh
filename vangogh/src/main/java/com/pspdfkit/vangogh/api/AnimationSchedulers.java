@@ -10,19 +10,19 @@ public final class AnimationSchedulers {
 
     /**
      * Animates given animations at the same time.
-     * @param animations Animation to execute together.
+     * @param animations Animations to execute together.
      * @return Completable finishing once the last animation is completed.
      */
-    public static Completable together(AnimationCompletable... animations) {
+    public static Completable together(Completable... animations) {
         return Completable.mergeArray(animations);
     }
 
     /**
      * Animates given animations one after another
-     * @param animations Animation to execute sequentially.
+     * @param animations Animations to execute sequentially.
      * @return Completable finishing once the last animation is completed.
      */
-    public static Completable sequentially(AnimationCompletable... animations) {
+    public static Completable sequentially(Completable... animations) {
         return Completable.concatArray(animations);
     }
 

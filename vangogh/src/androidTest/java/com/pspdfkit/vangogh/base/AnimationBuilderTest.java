@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class AnimationBuilderTest {
 
   @Test
+  @SuppressWarnings("ConstantConditions")
   public void testAnimationBuilder() {
     View view = new View(InstrumentationRegistry.getContext());
     Interpolator interpolator = new LinearInterpolator();

@@ -28,10 +28,8 @@ android {
 
 dependencies {
     // Library dependencies
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile libraries.supportAppCompat
     compile libraries.rxJava
-    compile libraries.rxAndroid
 
     // Android test dependencies
     androidTestCompile libraries.espressoCore

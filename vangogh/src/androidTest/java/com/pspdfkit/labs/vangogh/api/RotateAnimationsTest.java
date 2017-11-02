@@ -1,11 +1,11 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.pspdfkit.vangogh.api.RotateAnimations.*;
+import static com.pspdfkit.labs.vangogh.api.RotateAnimations.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)

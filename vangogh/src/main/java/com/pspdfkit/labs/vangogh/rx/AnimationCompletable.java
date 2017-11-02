@@ -1,10 +1,10 @@
-package com.pspdfkit.vangogh.rx;
+package com.pspdfkit.labs.vangogh.rx;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.view.View;
-import com.pspdfkit.vangogh.base.Animation;
+import com.pspdfkit.labs.vangogh.base.Animation;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.annotations.NonNull;

@@ -1,9 +1,9 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.view.View;
 import android.view.animation.Interpolator;
-import com.pspdfkit.vangogh.base.AnimationBuilder;
-import com.pspdfkit.vangogh.rx.AnimationCompletable;
+import com.pspdfkit.labs.vangogh.base.AnimationBuilder;
+import com.pspdfkit.labs.vangogh.rx.AnimationCompletable;
 import io.reactivex.annotations.NonNull;
 
 /**

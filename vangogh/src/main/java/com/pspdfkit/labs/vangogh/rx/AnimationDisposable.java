@@ -1,4 +1,4 @@
-package com.pspdfkit.vangogh.rx;
+package com.pspdfkit.labs.vangogh.rx;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;

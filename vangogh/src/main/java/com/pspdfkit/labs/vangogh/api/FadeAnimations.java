@@ -1,17 +1,17 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.view.View;
 import android.view.animation.Interpolator;
-import com.pspdfkit.vangogh.base.AnimationBuilder;
-import com.pspdfkit.vangogh.rx.AnimationCompletable;
+import com.pspdfkit.labs.vangogh.base.AnimationBuilder;
+import com.pspdfkit.labs.vangogh.rx.AnimationCompletable;
 import io.reactivex.annotations.NonNull;
 
-import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_INVISIBLE;
-import static com.pspdfkit.vangogh.api.AnimationConstants.ALPHA_VISIBLE;
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_DEFAULT;
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
-import static com.pspdfkit.vangogh.api.AnimationConstants.INTERPOLATOR;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.ALPHA_INVISIBLE;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.ALPHA_VISIBLE;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_DEFAULT;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_QUICK;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_SLOW;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.INTERPOLATOR;
 
 /**
  * Class containing convenient fade animations.

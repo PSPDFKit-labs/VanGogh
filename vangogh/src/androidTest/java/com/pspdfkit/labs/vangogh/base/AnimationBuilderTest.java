@@ -1,4 +1,4 @@
-package com.pspdfkit.vangogh.base;
+package com.pspdfkit.labs.vangogh.base;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;

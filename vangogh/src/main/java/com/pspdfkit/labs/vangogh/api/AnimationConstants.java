@@ -1,4 +1,4 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;

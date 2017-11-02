@@ -1,20 +1,20 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_DEFAULT;
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_QUICK;
-import static com.pspdfkit.vangogh.api.AnimationConstants.DURATION_SLOW;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeIn;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInQuickly;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeInSlowly;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOut;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutQuickly;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeOutSlowly;
-import static com.pspdfkit.vangogh.api.FadeAnimations.fadeToAlpha;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_DEFAULT;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_QUICK;
+import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_SLOW;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeIn;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeInQuickly;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeInSlowly;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeOut;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeOutQuickly;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeOutSlowly;
+import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeToAlpha;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)

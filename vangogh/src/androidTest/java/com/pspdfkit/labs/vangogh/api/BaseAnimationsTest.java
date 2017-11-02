@@ -1,10 +1,10 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 
-import com.pspdfkit.vangogh.view.TestActivity;
+import com.pspdfkit.labs.vangogh.view.TestActivity;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.TestObserver;
@@ -35,7 +35,7 @@ public abstract class BaseAnimationsTest {
 
     @Before
     public void setUp() {
-        view = activityRule.getActivity().findViewById(com.pspdfkit.vangogh.test.R.id.view);
+        view = activityRule.getActivity().findViewById(com.pspdfkit.labs.vangogh.test.R.id.view);
         o = new TestObserver();
     }
 

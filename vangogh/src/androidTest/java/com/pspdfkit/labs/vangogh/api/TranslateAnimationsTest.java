@@ -1,16 +1,16 @@
-package com.pspdfkit.vangogh.api;
+package com.pspdfkit.labs.vangogh.api;
 
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateBy;
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateQuicklyBy;
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateQuicklyTo;
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateSlowlyBy;
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateSlowlyTo;
-import static com.pspdfkit.vangogh.api.TranslateAnimations.translateTo;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateBy;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateQuicklyBy;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateQuicklyTo;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateSlowlyBy;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateSlowlyTo;
+import static com.pspdfkit.labs.vangogh.api.TranslateAnimations.translateTo;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)

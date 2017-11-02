@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.pspdfkit.vangogh">
+          package="com.pspdfkit.labs.vangogh">
 
     <application>
-        <activity android:name="com.pspdfkit.vangogh.view.TestActivity"/>
+        <activity android:name="com.pspdfkit.labs.vangogh.view.TestActivity"/>
     </application>
 
 </manifest>

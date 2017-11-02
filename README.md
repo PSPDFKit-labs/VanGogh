@@ -10,6 +10,40 @@ For documentation on how to use the library, [please check the VanGogh wiki page
 
 For quick display of VanGogh in action see [Showcase section in wiki](https://github.com/PSPDFKit-labs/VanGogh/wiki/Showcase).
 
+## Download
+
+### Latest version (not yet released):
+
+Add maven central repo to your repositories in `build.gradle`:
+
+```gradle
+repositories {
+  mavenCentral()
+}
+```
+
+And latest version to your dependencies:
+
+```gradle
+compile 'com.pspdfkit-labs:vangogh:0.1.0'
+```
+
+### Latest snapshot:
+
+Add maven snapshots repo to your repositories in `build.gradle`:
+
+```gradle
+maven {
+  url "https://oss.sonatype.org/content/repositories/snapshots"
+}
+```
+
+And snapshot version to your dependencies:
+
+```gradle
+compile 'com.pspdfkit-labs:vangogh:0.1.0-SNAPSHOT'
+```
+
 ## License
 
 ```

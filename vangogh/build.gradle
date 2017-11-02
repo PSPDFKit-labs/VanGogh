@@ -7,8 +7,6 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode versions.code
-        versionName versions.name
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -42,3 +40,5 @@ dependencies {
     testCompile libraries.junit
     testCompile libraries.robolectric
 }
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

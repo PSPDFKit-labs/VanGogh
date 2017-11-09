@@ -12,8 +12,6 @@ For quick display of VanGogh in action see [Showcase section in wiki](https://gi
 
 ## Download
 
-### Latest version (not yet released):
-
 Add maven central repo to your repositories in `build.gradle`:
 
 ```gradle
@@ -28,23 +26,7 @@ And latest version to your dependencies:
 compile 'com.pspdfkit-labs:vangogh:0.1.0'
 ```
 
-### Latest snapshot:
-
-Add maven snapshots repo to your repositories in `build.gradle`:
-
-```gradle
-repositories {
-  maven {
-    url "https://oss.sonatype.org/content/repositories/snapshots"
-  }
-}
-```
-
-And snapshot version to your dependencies:
-
-```gradle
-compile 'com.pspdfkit-labs:vangogh:0.1.0-SNAPSHOT'
-```
+Snapshots of the development version are available in [Sonatype's snapshots repository](https://oss.sonatype.org/content/repositories/snapshots/).
 
 ## License
 

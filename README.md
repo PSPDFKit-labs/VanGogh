@@ -33,8 +33,10 @@ compile 'com.pspdfkit-labs:vangogh:0.1.0'
 Add maven snapshots repo to your repositories in `build.gradle`:
 
 ```gradle
-maven {
-  url "https://oss.sonatype.org/content/repositories/snapshots"
+repositories {
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots"
+  }
 }
 ```
 

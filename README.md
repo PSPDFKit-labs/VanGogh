@@ -8,8 +8,6 @@ It also provides various pre-made commonly used animations such as fading, rotat
 
 For documentation on how to use the library, [please check the VanGogh wiki page](https://github.com/PSPDFKit-labs/VanGogh/wiki).
 
-For quick display of VanGogh in action see [Showcase section in wiki](https://github.com/PSPDFKit-labs/VanGogh/wiki/Showcase).
-
 ## Download
 
 Add maven central repo to your repositories in `build.gradle`:

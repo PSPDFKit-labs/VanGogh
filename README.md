@@ -1,4 +1,4 @@
-<img src="/art/van-gogh-logo-light.png" width="200px"/> 
+<img src="/art/van-gogh-logo-light.png" width="360px"/> 
 
 [![Build Status](https://travis-ci.org/PSPDFKit-labs/VanGogh.svg?branch=master)](https://travis-ci.org/PSPDFKit-labs/VanGogh)
 

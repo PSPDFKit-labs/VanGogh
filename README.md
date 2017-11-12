@@ -37,7 +37,7 @@ Snapshots of the development version are available in [Sonatype's snapshots repo
 ```
 MIT License
 
-Copyright (c) 2017 PSPDFKit Labs
+Copyright (c) 2017 PSPDFKit GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

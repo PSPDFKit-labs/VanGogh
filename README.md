@@ -10,6 +10,10 @@ It also provides various pre-made commonly used animations such as fading, rotat
 
 For documentation on how to use the library, [please check the VanGogh wiki page](https://github.com/PSPDFKit-labs/VanGogh/wiki).
 
+To learn more, [see the announcement post on PSPDFKit's blog/](https://pspdfkit.com/blog/2017/reactive-animations-on-android-with-van-gogh/)
+
+PSPDFKit offers [SDKs for iOS, Android, macOS, Windows and Web](https://pspdfkit.com/pdf-sdk/) to view, edit, annotate, fill forms and digitally sign PDF documents. VanGogh is used in [PDF Viewer for Android](https://pdfviewer.io/) as the main animation library.
+
 ## Download
 
 Add maven central repo to your repositories in `build.gradle`:

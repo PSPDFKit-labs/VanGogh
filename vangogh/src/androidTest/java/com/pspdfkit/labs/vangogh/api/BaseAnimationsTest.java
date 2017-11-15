@@ -9,6 +9,7 @@ import com.pspdfkit.labs.vangogh.view.TestActivity;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.TestObserver;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -37,6 +38,12 @@ public abstract class BaseAnimationsTest {
     public void setUp() {
         view = activityRule.getActivity().findViewById(com.pspdfkit.labs.vangogh.test.R.id.view);
         o = new TestObserver();
+    }
+
+    @After
+    public void tearDown() {
+        o.dispose();
+        o = null;
     }
 
     /**

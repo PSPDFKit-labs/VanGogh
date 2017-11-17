@@ -135,7 +135,6 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                 }
 
                 animator.setListener(null);
-                animator = null;
                 observer.onComplete();
             }
 
@@ -150,7 +149,6 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                 }
 
                 animator.setListener(null);
-                animator = null;
                 observer.onComplete();
             }
         });

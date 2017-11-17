@@ -18,10 +18,10 @@ before_install:
 - mkdir "$ANDROID_HOME/licenses" || true
 - echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"
 - chmod +x gradlew
-- echo no | avdmanager create avd --force -n test -k "system-images;android-22;default;armeabi-v7a"
-- $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window &
 
 before_script:
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82
 

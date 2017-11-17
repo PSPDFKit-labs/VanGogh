@@ -34,12 +34,12 @@ dependencies {
 
     // Android test dependencies
     androidTestCompile libraries.espressoCore
-    //androidTestCompile libraries.mockitoAndroid
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 
     // Test dependencies
     testCompile libraries.junit
     testCompile libraries.robolectric
-    //testCompile libraries.mockitoCore
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

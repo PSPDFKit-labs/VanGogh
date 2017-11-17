@@ -13,8 +13,7 @@ ext.versions = [
         // Test dependencies
         junit              : '4.12',
         espresso           : '2.2.2',
-        robolectric        : '3.4.2',
-        mockito            : '2.12.0'
+        robolectric        : '3.4.2'
 ]
 
 ext.gradlePlugins = [
@@ -31,6 +30,4 @@ ext.libraries = [
         junit           : "junit:junit:$versions.junit",
         espressoCore    : "com.android.support.test.espresso:espresso-core:$versions.espresso",
         robolectric     : "org.robolectric:robolectric:$versions.robolectric",
-        mockitoCore     : "org.mockito:mockito-core:$versions.mockito",
-        mockitoAndroid  : "org.mockito:mockito-android:$versions.mockito"
 ]

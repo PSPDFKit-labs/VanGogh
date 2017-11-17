@@ -1,17 +1,12 @@
 package com.pspdfkit.labs.vangogh.rx;
 
+import io.reactivex.android.MainThreadDisposable;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Represents disposable resource for animations.
  */
-public final class AnimationDisposable implements Disposable {
-
-    /** Tracks whether this disposable has been disposed or not. */
-    @NonNull private final AtomicBoolean isDisposed = new AtomicBoolean();
+public final class AnimationDisposable extends MainThreadDisposable {
 
     /** Provided listener through which {@link AnimationDisposable} can notify that it has been disposed. */
     @NonNull private final OnAnimationDisposedListener onAnimationDisposedListener;
@@ -24,20 +19,11 @@ public final class AnimationDisposable implements Disposable {
         this.onAnimationDisposedListener = onAnimationDisposedListener;
     }
 
-    /** {@inheritDoc} */
     @Override
-    public void dispose() {
-        if (isDisposed.compareAndSet(false, true)) {
-            if (onAnimationDisposedListener != null) {
-                onAnimationDisposedListener.onAnimationDisposed();
-            }
+    protected void onDispose() {
+        if (onAnimationDisposedListener != null) {
+            onAnimationDisposedListener.onAnimationDisposed();
         }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public boolean isDisposed() {
-        return isDisposed.get();
     }
 
 }

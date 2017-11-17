@@ -26,7 +26,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateTo() throws InterruptedException {
-        o.assertNotComplete();
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -35,7 +34,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateToWithDuration() throws InterruptedException {
-        o.assertNotComplete();
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
         assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -54,7 +52,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateQuicklyTo() throws InterruptedException {
-        o.assertNotComplete();
         translateQuicklyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -68,7 +65,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateSlowlyTo() throws InterruptedException {
-        o.assertNotComplete();
         translateSlowlyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
@@ -82,7 +78,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateBy() throws InterruptedException {
-        o.assertNotComplete();
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -91,7 +86,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateByWithDuration() throws InterruptedException {
-        o.assertNotComplete();
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
         assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -110,7 +104,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateQuicklyBy() throws InterruptedException {
-        o.assertNotComplete();
         translateQuicklyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
@@ -124,7 +117,6 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testTranslateSlowlyBy() throws InterruptedException {
-        o.assertNotComplete();
         translateSlowlyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);

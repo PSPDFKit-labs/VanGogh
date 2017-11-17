@@ -17,7 +17,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleTo() throws InterruptedException {
-        o.assertNotComplete();
         scaleTo(view, SCALE_TO_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
         assertEquals(SCALE_TO_VALUE, view.getScaleX(), 0.1f);
@@ -26,7 +25,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleToWithDuration() throws InterruptedException {
-        o.assertNotComplete();
         scaleTo(view, SCALE_TO_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
         assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
         assertEquals(SCALE_TO_VALUE, view.getScaleX(), 0.1f);
@@ -45,7 +43,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleQuicklyTo() throws InterruptedException {
-        o.assertNotComplete();
         scaleQuicklyTo(view, SCALE_TO_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
         assertEquals(SCALE_TO_VALUE, view.getScaleX(), 0.1f);
@@ -59,7 +56,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleSlowlyTo() throws InterruptedException {
-        o.assertNotComplete();
         scaleSlowlyTo(view, SCALE_TO_VALUE).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
         assertEquals(SCALE_TO_VALUE, view.getScaleX(), 0.1f);
@@ -73,7 +69,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleBy() throws InterruptedException {
-        o.assertNotComplete();
         scaleBy(view, SCALE_BY_VALUE).andThen(scaleBy(view, SCALE_BY_VALUE)).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT * 2);
         assertEquals(1 + 2 * SCALE_BY_VALUE, view.getScaleX(), 0.1f);
@@ -82,7 +77,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleByWithDuration() throws InterruptedException {
-        o.assertNotComplete();
         scaleBy(view, SCALE_BY_VALUE, CUSTOM_TEST_DURATION_MS).andThen(scaleBy(view, SCALE_BY_VALUE, CUSTOM_TEST_DURATION_MS)).subscribe(o);
         assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS * 2);
         assertEquals(1 + 2 * SCALE_BY_VALUE, view.getScaleX(), 0.1f);
@@ -101,7 +95,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleQuicklyBy() throws InterruptedException {
-        o.assertNotComplete();
         scaleQuicklyBy(view, SCALE_BY_VALUE).andThen(scaleQuicklyBy(view, SCALE_BY_VALUE)).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK * 2);
         assertEquals(1 + 2 * SCALE_BY_VALUE, view.getScaleX(), 0.1f);
@@ -115,7 +108,6 @@ public class ScaleAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testScaleSlowlyBy() throws InterruptedException {
-        o.assertNotComplete();
         scaleSlowlyBy(view, SCALE_BY_VALUE).andThen(scaleSlowlyBy(view, SCALE_BY_VALUE)).subscribe(o);
         assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW * 2);
         assertEquals(1 + 2 * SCALE_BY_VALUE, view.getScaleX(), 0.1f);

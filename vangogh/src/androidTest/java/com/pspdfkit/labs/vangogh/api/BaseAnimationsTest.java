@@ -38,6 +38,8 @@ public abstract class BaseAnimationsTest {
     public void setUp() {
         view = activityRule.getActivity().findViewById(com.pspdfkit.labs.vangogh.test.R.id.view);
         o = new TestObserver();
+        o.assertNotSubscribed();
+        o.assertNotComplete();
     }
 
     @After

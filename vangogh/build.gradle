@@ -30,15 +30,16 @@ dependencies {
     // Library dependencies
     compile libraries.supportAppCompat
     compile libraries.rxJava
+    compile libraries.rxAndroid
 
     // Android test dependencies
     androidTestCompile libraries.espressoCore
-    androidTestCompile libraries.mockitoAndroid
+    //androidTestCompile libraries.mockitoAndroid
 
     // Test dependencies
     testCompile libraries.junit
     testCompile libraries.robolectric
-    testCompile libraries.mockitoCore
+    //testCompile libraries.mockitoCore
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

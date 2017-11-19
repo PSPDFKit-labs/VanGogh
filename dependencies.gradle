@@ -29,5 +29,5 @@ ext.libraries = [
         // Test dependencies
         junit           : "junit:junit:$versions.junit",
         espressoCore    : "com.android.support.test.espresso:espresso-core:$versions.espresso",
-        robolectric     : "org.robolectric:robolectric:$versions.robolectric"
+        robolectric     : "org.robolectric:robolectric:$versions.robolectric",
 ]

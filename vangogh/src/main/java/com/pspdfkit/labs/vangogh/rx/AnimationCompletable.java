@@ -36,6 +36,9 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     /** Animator for the current running animation. */
     @Nullable private ViewPropertyAnimatorCompat animator;
 
+    /** Tracks whether the animation is still running. */
+    @Nullable private boolean isAnimationRunning = false;
+
     /**
      * Creates completable that runs provided animation once subscribed to.
      * @param animation Animation to run when subscribed.
@@ -88,8 +91,11 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     @Override
     public void onAnimationDisposed() {
         if (animator != null) {
-            animator.cancel();
-            animator.setListener(null);
+            if (isAnimationRunning) {
+                animator.cancel();
+                isAnimationRunning = false;
+            }
+
             animator = null;
         }
     }
@@ -108,8 +114,10 @@ public final class AnimationCompletable extends Completable implements OnAnimati
 
         try {
             animator = startAnimation(animation);
+            isAnimationRunning = true;
         } catch (Exception e) {
             observer.onError(e);
+            isAnimationRunning = false;
         }
 
         animator.setListener(new ViewPropertyAnimatorListener() {
@@ -134,8 +142,8 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                     }
                 }
 
+                isAnimationRunning = false;
                 animator.setListener(null);
-                animator = null;
                 observer.onComplete();
             }
 
@@ -149,8 +157,8 @@ public final class AnimationCompletable extends Completable implements OnAnimati
                     }
                 }
 
+                isAnimationRunning = false;
                 animator.setListener(null);
-                animator = null;
                 observer.onComplete();
             }
         });

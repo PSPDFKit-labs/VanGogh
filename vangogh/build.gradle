@@ -30,9 +30,12 @@ dependencies {
     // Library dependencies
     compile libraries.supportAppCompat
     compile libraries.rxJava
+    compile libraries.rxAndroid
 
     // Android test dependencies
     androidTestCompile libraries.espressoCore
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 
     // Test dependencies
     testCompile libraries.junit

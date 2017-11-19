@@ -22,7 +22,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeIn() throws Throwable {
-        o.assertNotComplete();
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -37,7 +36,6 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeInWithDuration() throws Throwable {
-        o.assertNotComplete();
         activityRule.runOnUiThread(new Runnable() {
             @Override
             public void run() {

@@ -7,6 +7,9 @@ Version 0.1.2 *(2017-x-y)*
     * Adds `ShakeAnimations` class with `shake()`, `shakeQuickly()` and `shakeSlowly()` methods.
 * Adds "show as toast" animations. ([#15](https://github.com/PSPDFKit-labs/VanGogh/issues/15))
     * Adds `ToastAnimations` class with `showAsToast()`, `showAsToastQuickly()` and `showAsToastSlowly()` methods.
+* Adds "spin" animations. ([#14](https://github.com/PSPDFKit-labs/VanGogh/issues/14))
+    * Adds `SpinAnimations` class with `spinLeft()`, `spinLeftQuickly()`, `spinLeftSlowly()` methods for spinning to the left.
+    * Adds `SpinAnimations` class with `spinRight()`, `spinRightQuickly()`, `spinRightSlowly()` methods for spinning to the right.
 
 Version 0.1.1 *(2017-11-20)*
 ----------------------------

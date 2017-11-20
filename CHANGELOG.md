@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+Version 0.1.2 *(2017-x-y)*
+----------------------------
+* Adds "shake" animations. ([#13](https://github.com/PSPDFKit-labs/VanGogh/issues/13))
+
 Version 0.1.1 *(2017-11-20)*
 ----------------------------
 * Fixes `NullPointerException` being thrown when animation disposed midway. ([#10](https://github.com/PSPDFKit-labs/VanGogh/issues/10))

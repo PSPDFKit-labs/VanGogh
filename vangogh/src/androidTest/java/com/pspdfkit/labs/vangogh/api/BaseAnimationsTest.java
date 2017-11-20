@@ -55,7 +55,8 @@ public abstract class BaseAnimationsTest {
     protected void assertTestObserverCompletedAfterDuration(long durationMs) throws InterruptedException {
         o.await(durationMs / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
-        o.await(2 * durationMs, TimeUnit.MILLISECONDS);
+        // Sometimes the duration is too small of a number, so increase wait time to at least two seconds.
+        o.awaitDone(2 * Math.max(durationMs, 1000L), TimeUnit.MILLISECONDS);
         o.assertComplete();
     }
 

@@ -2,7 +2,6 @@ package com.pspdfkit.labs.vangogh.api;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
 import com.pspdfkit.labs.vangogh.base.AnimationBuilder;
@@ -20,27 +19,22 @@ public class ToastAnimations {
     /**
      * Default duration of fades when displaying view as a toast (in milliseconds).
      */
-    private static final long FADE_DURATION = 1000L;
+    static final long FADE_DURATION = 1000L;
 
     /**
      * Default toast view display duration.
      */
-    private static final long VIEW_SHOW_DURATION_DEFAULT = 2000L;
+    static final long VIEW_SHOW_DURATION_DEFAULT = 2000L;
 
     /**
      * Quick toast view display duration.
      */
-    private static final long VIEW_SHOW_DURATION_QUICK = 1000L;
+    static final long VIEW_SHOW_DURATION_QUICK = 1000L;
 
     /**
      * Slow toast view display duration.
      */
-    private static final long VIEW_SHOW_DURATION_SLOW = 500L;
-
-    /**
-     * Default interpolator used in fade animations.
-     */
-    private static final Interpolator INTERPOLATOR = new AccelerateDecelerateInterpolator();
+    static final long VIEW_SHOW_DURATION_SLOW = 500L;
 
     /**
      * Shows given view as a toast, meaning fading it in, keeping for some time on the screen
@@ -52,7 +46,7 @@ public class ToastAnimations {
      * @return     Completable starting the animation once subscribed to.
      */
     public static Completable showAsToast(@NonNull View view) {
-        return showAsToast(view, VIEW_SHOW_DURATION_DEFAULT, INTERPOLATOR);
+        return showAsToast(view, VIEW_SHOW_DURATION_DEFAULT, AnimationConstants.INTERPOLATOR);
     }
 
     /**
@@ -66,7 +60,7 @@ public class ToastAnimations {
      * @return           Completable starting the animation once subscribed to.
      */
     public static Completable showAsToast(@NonNull View view, long durationMs) {
-        return showAsToast(view, durationMs, INTERPOLATOR);
+        return showAsToast(view, durationMs, AnimationConstants.INTERPOLATOR);
     }
 
     /**

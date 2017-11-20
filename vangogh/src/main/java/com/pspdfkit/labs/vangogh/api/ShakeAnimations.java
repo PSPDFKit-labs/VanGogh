@@ -15,13 +15,13 @@ import io.reactivex.Completable;
 public final class ShakeAnimations {
 
     /** Amount of 'shakes' applied to the view inside one second (by default). */
-    private static final float CYCLES_PER_SECOND_DEFAULT = 10f;
+    private static final float SHAKES_PER_SECOND_DEFAULT = 10f;
 
     /** Amount of 'shakes' applied to the view inside one second (slow). */
-    private static final float CYCLES_PER_SECOND_SLOW = 4f;
+    private static final float SHAKES_PER_SECOND_SLOW = 4f;
 
     /** Amount of 'shakes' applied to the view inside one second (quick). */
-    private static final float CYCLES_PER_SECOND_QUICK = 20f;
+    private static final float SHAKES_PER_SECOND_QUICK = 20f;
 
     /**
      * Shakes the given view.
@@ -39,19 +39,18 @@ public final class ShakeAnimations {
      * @return           Completable executing animation once subscribed to.
      */
     public static Completable shake(@NonNull View view, long durationMs) {
-        return shake(view, durationMs, CYCLES_PER_SECOND_DEFAULT);
+        return shake(view, durationMs, SHAKES_PER_SECOND_DEFAULT);
     }
 
     /**
      * Shakes the given view.
      * @param view            View on which to apply the animation.
      * @param durationMs      Duration of the animation in milliseconds.
-     * @param cyclesPerSecond Cycles per second, presenting a number of shakes per second,
-     *                        defaults to {@value #CYCLES_PER_SECOND_DEFAULT}.
+     * @param shakesPerSecond Number of shakes per second, defaults to {@value #SHAKES_PER_SECOND_DEFAULT}.
      * @return                Completable executing animation once subscribed to.
      */
-    public static Completable shake(@NonNull View view, long durationMs, float cyclesPerSecond) {
-        final float numberOfCycles = durationMs * (cyclesPerSecond / 1000);
+    public static Completable shake(@NonNull View view, long durationMs, float shakesPerSecond) {
+        final float numberOfCycles = durationMs * (shakesPerSecond / 1000);
         final CycleInterpolator interpolator = new CycleInterpolator(numberOfCycles / 2);
         final AnimationCompletable shakeFirst = AnimationBuilder.forView(view)
                 .translationXBy(10f)
@@ -72,7 +71,7 @@ public final class ShakeAnimations {
      * @return     Completable executing animation once subscribed to.
      */
     public static Completable shakeQuickly(@NonNull View view) {
-        return shake(view, AnimationConstants.DURATION_DEFAULT, CYCLES_PER_SECOND_QUICK);
+        return shake(view, AnimationConstants.DURATION_DEFAULT, SHAKES_PER_SECOND_QUICK);
     }
 
     /**
@@ -82,7 +81,7 @@ public final class ShakeAnimations {
      * @return           Completable executing animation once subscribed to.
      */
     public static Completable shakeQuickly(@NonNull View view, long durationMs) {
-        return shake(view, durationMs, CYCLES_PER_SECOND_QUICK);
+        return shake(view, durationMs, SHAKES_PER_SECOND_QUICK);
     }
 
     /**
@@ -91,7 +90,7 @@ public final class ShakeAnimations {
      * @return     Completable executing animation once subscribed to.
      */
     public static Completable shakeSlowly(@NonNull View view) {
-        return shake(view, AnimationConstants.DURATION_DEFAULT, CYCLES_PER_SECOND_SLOW);
+        return shake(view, AnimationConstants.DURATION_DEFAULT, SHAKES_PER_SECOND_SLOW);
     }
 
     /**
@@ -101,7 +100,7 @@ public final class ShakeAnimations {
      * @return           Completable executing animation once subscribed to.
      */
     public static Completable shakeSlowly(@NonNull View view, long durationMs) {
-        return shake(view, durationMs, CYCLES_PER_SECOND_SLOW);
+        return shake(view, durationMs, SHAKES_PER_SECOND_SLOW);
     }
 
 }

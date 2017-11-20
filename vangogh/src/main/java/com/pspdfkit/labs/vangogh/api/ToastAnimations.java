@@ -14,7 +14,7 @@ import io.reactivex.Completable;
 /**
  * Holds methods to animate view to display as toast, coming from invisible to visible.
  */
-public class ToastAnimations {
+public final class ToastAnimations {
 
     /**
      * Default duration of fades when displaying view as a toast (in milliseconds).

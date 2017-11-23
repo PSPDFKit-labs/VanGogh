@@ -16,17 +16,17 @@ public final class SpinAnimations {
     /**
      * Number of spin cycles per animation by default.
      */
-    private static final int SPIN_CYCLES_PER_ANIM_DEFAULT = 2;
+    static final int SPIN_CYCLES_PER_ANIM_DEFAULT = 2;
 
     /**
      * Number of spin cycles per animation (quickly).
      */
-    private static final int SPIN_CYCLES_PER_ANIM_QUICK = 4;
+    static final int SPIN_CYCLES_PER_ANIM_QUICK = 4;
 
     /**
      * Number of spin cycles per animation (slowly).
      */
-    private static final int SPIN_CYCLES_PER_ANIM_SLOW = 1;
+    static final int SPIN_CYCLES_PER_ANIM_SLOW = 1;
 
     /**
      * Spins the given view to the right.

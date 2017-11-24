@@ -25,6 +25,8 @@ before_script:
 notifications:
   email: true
 
+sudo: false
+
 cache:
   directories:
     - $HOME/.m2

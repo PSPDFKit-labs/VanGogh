@@ -59,7 +59,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades in the given view quickly (duration = {@value AnimationConstants#DURATION_QUICK}).
+     * Fades in the given view quickly.
      * @param view View to fade in.
      * @return Completable which starts animation once subscribed to.
      */
@@ -68,7 +68,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades in the given view quickly (duration = {@value AnimationConstants#DURATION_QUICK}).
+     * Fades in the given view quickly.
      * @param view         View to fade in.
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
@@ -78,7 +78,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades in the given view slowly (duration = {@value AnimationConstants#DURATION_SLOW}).
+     * Fades in the given view slowly.
      * @param view View to fade in.
      * @return Completable which starts animation once subscribed to.
      */
@@ -87,7 +87,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades in the given view slowly (duration = {@value AnimationConstants#DURATION_SLOW}).
+     * Fades in the given view slowly.
      * @param view         View to fade in.
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
@@ -137,7 +137,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades out the given view quickly (duration = {@value AnimationConstants#DURATION_QUICK}).
+     * Fades out the given view quickly.
      * @param view View to fade out.
      * @return Completable which starts animation once subscribed to.
      */
@@ -146,7 +146,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades out the given view quickly (duration = {@value AnimationConstants#DURATION_QUICK}).
+     * Fades out the given view quickly.
      * @param view         View to fade out.
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.
@@ -156,7 +156,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades out the given view slowly (duration = {@value AnimationConstants#DURATION_SLOW}).
+     * Fades out the given view slowly.
      * @param view View to fade out.
      * @return Completable which starts animation once subscribed to.
      */
@@ -165,7 +165,7 @@ public final class FadeAnimations {
     }
 
     /**
-     * Fades out the given view slowly (duration = {@value AnimationConstants#DURATION_SLOW}).
+     * Fades out the given view slowly.
      * @param view         View to fade out.
      * @param interpolator Interpolator to use in animation.
      * @return Completable which starts animation once subscribed to.

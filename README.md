@@ -12,6 +12,20 @@ For documentation on how to use the library, [please check the VanGogh wiki page
 
 PSPDFKit offers [SDKs for iOS, Android, macOS, Windows and Web](https://pspdfkit.com/pdf-sdk/) to view, edit, annotate, fill forms and digitally sign PDF documents. VanGogh is used in [PDF Viewer for Android](https://pdfviewer.io/) as the main animation library.
 
+## Example
+
+Here's a really simple example of how you can chain animations together:
+
+```kotlin
+fadeIn(view1)
+  .andThen(fadeIn(view2))
+  .andThen(
+    together(fadeOut(view3), fadeOut(view4)))
+  .subscribe();
+```
+  
+And this is just a tip of the iceberg! For further documentation see the [Wiki](https://github.com/PSPDFKit-labs/VanGogh/wiki).
+
 ## Download
 
 Add maven central repo to your repositories in `build.gradle`:

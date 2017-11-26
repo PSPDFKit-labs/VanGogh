@@ -1,1 +1,1 @@
-include ':vangogh-sample', ':vangogh'
+include ':vangogh'

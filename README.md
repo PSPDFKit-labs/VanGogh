@@ -39,7 +39,7 @@ repositories {
 And latest version to your dependencies:
 
 ```gradle
-compile 'com.pspdfkit-labs:vangogh:0.1.1'
+compile 'com.pspdfkit-labs:vangogh:0.2.0'
 ```
 
 Snapshots of the development version are available in [Sonatype's snapshots repository](https://oss.sonatype.org/content/repositories/snapshots/).

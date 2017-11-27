@@ -19,26 +19,26 @@ public final class ToastAnimations {
     /**
      * Default duration of fades when displaying view as a toast (in milliseconds).
      */
-    static final long FADE_DURATION = 1000L;
+    static final long FADE_DURATION = 300L;
 
     /**
      * Default toast view display duration.
      */
-    static final long VIEW_SHOW_DURATION_DEFAULT = 2000L;
+    static final long VIEW_SHOW_DURATION_DEFAULT = 1000L;
 
     /**
      * Quick toast view display duration.
      */
-    static final long VIEW_SHOW_DURATION_QUICK = 1000L;
+    static final long VIEW_SHOW_DURATION_QUICK = 600L;
 
     /**
      * Slow toast view display duration.
      */
-    static final long VIEW_SHOW_DURATION_SLOW = 500L;
+    static final long VIEW_SHOW_DURATION_SLOW = 3000L;
 
     /**
      * Shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_DEFAULT} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.
@@ -65,7 +65,7 @@ public final class ToastAnimations {
 
     /**
      * Shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_DEFAULT} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.
@@ -104,7 +104,7 @@ public final class ToastAnimations {
 
     /**
      * Quickly shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_QUICK} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.
@@ -117,7 +117,7 @@ public final class ToastAnimations {
 
     /**
      * Quickly shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_QUICK} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.
@@ -131,7 +131,7 @@ public final class ToastAnimations {
 
     /**
      * Slowly shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_SLOW} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.
@@ -144,7 +144,7 @@ public final class ToastAnimations {
 
     /**
      * Slowly shows given view as a toast, meaning fading it in, keeping for some time on the screen
-     * and then fading it out.
+     * (time = {@value VIEW_SHOW_DURATION_SLOW} ms) and then fading it out.
      * <p>
      * Note: You have to set your view to opacity = 0f and to visible if previously invisible.
      * The animation does not set any actions prior to animation.

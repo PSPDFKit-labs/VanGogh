@@ -65,6 +65,7 @@ public class SpinAnimationsTest extends BaseAnimationsTest {
         assertEquals(ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_SLOW, view.getRotation(), 0f);
     }
 
+    @Test
     public void testSpinRightSlowlyWithInterpolator() throws InterruptedException {
         // TODO Find a way to test interpolator.
     }

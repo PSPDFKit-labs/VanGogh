@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.vangogh.R;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 
 public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
 
+    private OnMainMenuItemClickListener listener;
+
     public MainMenuAdapter(@NonNull Context context, ArrayList<MainMenuItem> items) {
         super(context, 0, items);
     }
@@ -22,7 +25,7 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        MainMenuItem item = getItem(position);
+        final MainMenuItem item = getItem(position);
         if (item == null) return super.getView(position, convertView, parent);
 
         if (convertView == null) {
@@ -35,6 +38,25 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
         itemTitle.setText(item.getTitle());
         itemDesc.setText(item.getDesc());
 
+        LinearLayout itemLayout = convertView.findViewById(R.id.itemLayout);
+        itemLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onMainMenuItemClicked(item);
+                }
+            }
+        });
+
         return convertView;
     }
+
+    public void setOnMainMenuItemClickListener(@Nullable OnMainMenuItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnMainMenuItemClickListener {
+        void onMainMenuItemClicked(@NonNull MainMenuItem item);
+    }
+    
 }

@@ -29,7 +29,8 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
         if (item == null) return super.getView(position, convertView, parent);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.layout_main_menu_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.layout_main_menu_item, parent, false);
         }
 
         TextView itemTitle = convertView.findViewById(R.id.itemTitle);
@@ -58,5 +59,5 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
     public interface OnMainMenuItemClickListener {
         void onMainMenuItemClicked(@NonNull MainMenuItem item);
     }
-    
+
 }

@@ -21,12 +21,12 @@ public class MainMenuItem {
     }
 
     @NonNull
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
     @NonNull
-    public String getDesc() {
+    String getDesc() {
         return desc;
     }
 

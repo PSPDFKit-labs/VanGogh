@@ -12,13 +12,13 @@ import android.widget.TextView;
 
 import com.example.vangogh.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
 
     private OnMainMenuItemClickListener listener;
 
-    public MainMenuAdapter(@NonNull Context context, ArrayList<MainMenuItem> items) {
+    public MainMenuAdapter(@NonNull Context context, List<MainMenuItem> items) {
         super(context, 0, items);
     }
 

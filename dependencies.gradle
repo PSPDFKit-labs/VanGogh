@@ -1,12 +1,12 @@
 ext.versions = [
         minSdk             : 16,
-        targetSdk          : 23,
-        compileSdk         : 23,
-        buildTools         : '23.0.3',
+        targetSdk          : 27,
+        compileSdk         : 27,
+        buildTools         : '27.0.3',
         androidGradlePlugin: '2.2.1',
 
         // Dependencies
-        supportLibs        : '23.1.1',
+        supportLibs        : '27.0.2',
         rxJava             : '2.1.3',
         rxAndroid          : '2.0.1',
 

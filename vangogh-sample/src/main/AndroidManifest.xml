@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".samples.SingleAnimation"/>
+        <activity android:name=".samples.SingleRotateAnimationActivity"/>
+        <activity android:name=".samples.SingleFadeAnimationActivity"/>
     </application>
 
 </manifest>

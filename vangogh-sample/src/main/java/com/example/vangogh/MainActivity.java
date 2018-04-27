@@ -8,7 +8,9 @@ import android.widget.ListView;
 
 import com.example.vangogh.menu.MainMenuAdapter;
 import com.example.vangogh.menu.MainMenuItem;
-import com.example.vangogh.samples.SingleAnimation;
+import com.example.vangogh.samples.SingleAnimationActivity;
+import com.example.vangogh.samples.SingleFadeAnimationActivity;
+import com.example.vangogh.samples.SingleRotateAnimationActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements MainMenuAdapter.O
     @NonNull
     public List<MainMenuItem> getMainMenuItems() {
         List<MainMenuItem> items = new ArrayList<>();
-        items.add(new MainMenuItem("Single animation", "Showcases how single animations are executed", new SingleAnimation()));
+        items.add(new MainMenuItem("Fade animation", "Showcases the fade in/out animation", new SingleFadeAnimationActivity()));
+        items.add(new MainMenuItem("Rotate animation", "Showcases the rotation animation", new SingleRotateAnimationActivity()));
         return items;
     }
 

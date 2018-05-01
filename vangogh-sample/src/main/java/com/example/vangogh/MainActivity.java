@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import com.example.vangogh.menu.MainMenuAdapter;
 import com.example.vangogh.menu.MainMenuItem;
-import com.example.vangogh.samples.SingleAnimationActivity;
 import com.example.vangogh.samples.SingleFadeAnimationActivity;
 import com.example.vangogh.samples.SingleRotateAnimationActivity;
 
@@ -17,14 +16,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainMenuAdapter.OnMainMenuItemClickListener {
 
-    private ListView mainMenuList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainMenuList = findViewById(R.id.mainMenu);
+        ListView mainMenuList = findViewById(R.id.mainMenu);
 
         MainMenuAdapter adapter = new MainMenuAdapter(this, getMainMenuItems());
         adapter.setOnMainMenuItemClickListener(this);
@@ -33,14 +30,14 @@ public class MainActivity extends AppCompatActivity implements MainMenuAdapter.O
 
     @Override
     public void onMainMenuItemClicked(@NonNull MainMenuItem item) {
-        startActivity(new Intent(this, item.getActivity().getClass()));
+        startActivity(new Intent(this, item.getActivityClass()));
     }
 
     @NonNull
     public List<MainMenuItem> getMainMenuItems() {
         List<MainMenuItem> items = new ArrayList<>();
-        items.add(new MainMenuItem("Fade animation", "Showcases the fade in/out animation", new SingleFadeAnimationActivity()));
-        items.add(new MainMenuItem("Rotate animation", "Showcases the rotation animation", new SingleRotateAnimationActivity()));
+        items.add(new MainMenuItem("Fade animation", "Showcases the fade in/out animation", SingleFadeAnimationActivity.class));
+        items.add(new MainMenuItem("Rotate animation", "Showcases the rotation animation", SingleRotateAnimationActivity.class));
         return items;
     }
 

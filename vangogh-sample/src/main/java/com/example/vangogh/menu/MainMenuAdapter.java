@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
 
+    @Nullable
     private OnMainMenuItemClickListener listener;
 
     public MainMenuAdapter(@NonNull Context context, List<MainMenuItem> items) {
@@ -33,13 +34,13 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
                     R.layout.layout_main_menu_item, parent, false);
         }
 
-        TextView itemTitle = convertView.findViewById(R.id.itemTitle);
-        TextView itemDesc = convertView.findViewById(R.id.itemDesc);
+        final TextView itemTitle = convertView.findViewById(R.id.itemTitle);
+        final TextView itemDesc = convertView.findViewById(R.id.itemDesc);
 
         itemTitle.setText(item.getTitle());
         itemDesc.setText(item.getDesc());
 
-        LinearLayout itemLayout = convertView.findViewById(R.id.itemLayout);
+        final LinearLayout itemLayout = convertView.findViewById(R.id.itemLayout);
         itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

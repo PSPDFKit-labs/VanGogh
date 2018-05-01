@@ -3,7 +3,7 @@ package com.example.vangogh.menu;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 
-public class MainMenuItem {
+public class MainMenuItem<T extends Activity> {
 
     @NonNull
     private final String title;
@@ -12,12 +12,12 @@ public class MainMenuItem {
     private final String desc;
 
     @NonNull
-    private final Activity activity;
+    private final Class<T> activityClass;
 
-    public MainMenuItem(@NonNull String title, @NonNull String desc, @NonNull Activity activity) {
+    public MainMenuItem(@NonNull String title, @NonNull String desc, @NonNull Class<T> activityClass) {
         this.title = title;
         this.desc = desc;
-        this.activity = activity;
+        this.activityClass = activityClass;
     }
 
     @NonNull
@@ -31,8 +31,8 @@ public class MainMenuItem {
     }
 
     @NonNull
-    public Activity getActivity() {
-        return activity;
+    public Class<T> getActivityClass() {
+        return activityClass;
     }
 
 }

@@ -14,13 +14,11 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.TimeUnit;
-
 @RunWith(AndroidJUnit4.class)
 public abstract class BaseAnimationsTest {
 
     /** Used for testing animations with custom duration. */
-    protected static final long CUSTOM_TEST_DURATION_MS = 1300L;
+    static final long CUSTOM_TEST_DURATION_MS = 1300L;
 
     /** Activity rule for the {@link TestActivity} that holds the view to be animated. */
     @Rule
@@ -46,18 +44,6 @@ public abstract class BaseAnimationsTest {
     public void tearDown() {
         o.dispose();
         o = null;
-    }
-
-    /**
-     * Tests that the test observer was completed after specified duration, but not before.
-     * @param durationMs Duration in millis.
-     */
-    protected void assertTestObserverCompletedAfterDuration(long durationMs) throws InterruptedException {
-        o.await(durationMs / 2, TimeUnit.MILLISECONDS);
-        o.assertNotComplete();
-        // Sometimes the duration is too small of a number, so increase wait time to at least two seconds.
-        o.awaitDone(2 * Math.max(durationMs, 1000L), TimeUnit.MILLISECONDS);
-        o.assertComplete();
     }
 
 }

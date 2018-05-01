@@ -18,14 +18,14 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testRotateTo() throws InterruptedException {
         rotateTo(view, ROTATE_TO_DEGREES).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(ROTATE_TO_DEGREES, view.getRotation(), 0.1f);
     }
 
     @Test
     public void testRotateToWithDuration() throws InterruptedException {
         rotateTo(view, ROTATE_TO_DEGREES, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(ROTATE_TO_DEGREES, view.getRotation(), 0.1f);
     }
 
@@ -42,7 +42,7 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testRotateQuicklyTo() throws InterruptedException {
         rotateQuicklyTo(view, ROTATE_TO_DEGREES).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
+        o.await();
         assertEquals(ROTATE_TO_DEGREES, view.getRotation(), 0.1f);
     }
 
@@ -54,7 +54,7 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testRotateSlowlyTo() throws InterruptedException {
         rotateSlowlyTo(view, ROTATE_TO_DEGREES).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
+        o.await();
         assertEquals(ROTATE_TO_DEGREES, view.getRotation(), 0.1f);
     }
 
@@ -65,15 +65,19 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testRotateBy() throws InterruptedException {
-        rotateBy(view, ROTATE_BY_DEGREES).andThen(rotateBy(view, ROTATE_BY_DEGREES)).subscribe(o);
-        assertTestObserverCompletedAfterDuration(2 * AnimationConstants.DURATION_DEFAULT);
+        rotateBy(view, ROTATE_BY_DEGREES)
+                .andThen(rotateBy(view, ROTATE_BY_DEGREES))
+                .subscribe(o);
+        o.await();
         assertEquals(2 * ROTATE_BY_DEGREES, view.getRotation(), 0.1f);
     }
 
     @Test
     public void testRotateByWithDuration() throws InterruptedException {
-        rotateBy(view, ROTATE_BY_DEGREES, CUSTOM_TEST_DURATION_MS).andThen(rotateBy(view, ROTATE_BY_DEGREES, CUSTOM_TEST_DURATION_MS)).subscribe(o);
-        assertTestObserverCompletedAfterDuration(2 * CUSTOM_TEST_DURATION_MS);
+        rotateBy(view, ROTATE_BY_DEGREES, CUSTOM_TEST_DURATION_MS)
+                .andThen(rotateBy(view, ROTATE_BY_DEGREES, CUSTOM_TEST_DURATION_MS))
+                .subscribe(o);
+        o.await();
         assertEquals(2 * ROTATE_BY_DEGREES, view.getRotation(), 0.1f);
     }
 
@@ -89,8 +93,10 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testRotateQuicklyBy() throws InterruptedException {
-        rotateQuicklyBy(view, ROTATE_BY_DEGREES).andThen(rotateQuicklyBy(view, ROTATE_BY_DEGREES)).subscribe(o);
-        assertTestObserverCompletedAfterDuration(2 * AnimationConstants.DURATION_QUICK);
+        rotateQuicklyBy(view, ROTATE_BY_DEGREES)
+                .andThen(rotateQuicklyBy(view, ROTATE_BY_DEGREES))
+                .subscribe(o);
+        o.await();
         assertEquals(2 * ROTATE_BY_DEGREES, view.getRotation(), 0.1f);
     }
 
@@ -101,8 +107,10 @@ public class RotateAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testRotateSlowlyBy() throws InterruptedException {
-        rotateSlowlyBy(view, ROTATE_BY_DEGREES).andThen(rotateSlowlyBy(view, ROTATE_BY_DEGREES)).subscribe(o);
-        assertTestObserverCompletedAfterDuration(2 * AnimationConstants.DURATION_SLOW);
+        rotateSlowlyBy(view, ROTATE_BY_DEGREES)
+                .andThen(rotateSlowlyBy(view, ROTATE_BY_DEGREES))
+                .subscribe(o);
+        o.await();
         assertEquals(2 * ROTATE_BY_DEGREES, view.getRotation(), 0.1f);
     }
 

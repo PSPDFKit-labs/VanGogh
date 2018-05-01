@@ -18,110 +18,110 @@ public class SpinAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testSpinRight() throws InterruptedException {
         spinRight(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_DEFAULT, view.getRotation(), 0f);
     }
 
     @Test
     public void testSpinRightWithCycles() throws InterruptedException {
         spinRight(view, CUSTOM_NUMBER_OF_CYCLES).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(ONE_SPIN_DEGREES * CUSTOM_NUMBER_OF_CYCLES, view.getRotation(), 0f);
     }
 
     @Test
     public void testSpinRightWithCyclesAndDuration() throws InterruptedException {
         spinRight(view, CUSTOM_NUMBER_OF_CYCLES, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(ONE_SPIN_DEGREES * CUSTOM_NUMBER_OF_CYCLES, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinRightWithCyclesAndInterpolator() throws InterruptedException {
+    public void testSpinRightWithCyclesAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
-    public void testSpinRightWithCyclesDurationAndInterpolator() throws InterruptedException {
+    public void testSpinRightWithCyclesDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testSpinRightQuickly() throws InterruptedException {
         spinRightQuickly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
+        o.await();
         assertEquals(ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_QUICK, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinRightQuicklyWithInterpolator() throws InterruptedException {
+    public void testSpinRightQuicklyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testSpinRightSlowly() throws InterruptedException {
         spinRightSlowly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
+        o.await();
         assertEquals(ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_SLOW, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinRightSlowlyWithInterpolator() throws InterruptedException {
+    public void testSpinRightSlowlyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testSpinLeft() throws InterruptedException {
         spinLeft(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(-ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_DEFAULT, view.getRotation(), 0f);
     }
 
     @Test
     public void testSpinLeftWithCycles() throws InterruptedException {
         spinLeft(view, CUSTOM_NUMBER_OF_CYCLES).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(-ONE_SPIN_DEGREES * CUSTOM_NUMBER_OF_CYCLES, view.getRotation(), 0f);
     }
 
     @Test
     public void testSpinLeftWithCyclesAndDuration() throws InterruptedException {
         spinLeft(view, CUSTOM_NUMBER_OF_CYCLES, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(-ONE_SPIN_DEGREES * CUSTOM_NUMBER_OF_CYCLES, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinLeftWithCyclesAndInterpolator() throws InterruptedException {
+    public void testSpinLeftWithCyclesAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
-    public void testSpinLeftWithCyclesDurationAndInterpolator() throws InterruptedException {
+    public void testSpinLeftWithCyclesDurationAndInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testSpinLeftQuickly() throws InterruptedException {
         spinLeftQuickly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
+        o.await();
         assertEquals(-ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_QUICK, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinLeftQuicklyWithInterpolator() throws InterruptedException {
+    public void testSpinLeftQuicklyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 
     @Test
     public void testSpinLeftSlowly() throws InterruptedException {
         spinLeftSlowly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
+        o.await();
         assertEquals(-ONE_SPIN_DEGREES * SPIN_CYCLES_PER_ANIM_SLOW, view.getRotation(), 0f);
     }
 
     @Test
-    public void testSpinLeftSlowlyWithInterpolator() throws InterruptedException {
+    public void testSpinLeftSlowlyWithInterpolator() {
         // TODO Find a way to test interpolator.
     }
 

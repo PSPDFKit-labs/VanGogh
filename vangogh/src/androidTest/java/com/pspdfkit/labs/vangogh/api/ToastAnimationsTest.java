@@ -14,14 +14,14 @@ public class ToastAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testShowAsToast() throws Throwable {
         showAsToast(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(getFullToastDurationMs(ToastAnimations.VIEW_SHOW_DURATION_DEFAULT));
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
     public void testShowAsToastWithDuration() throws Throwable {
         showAsToast(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(getFullToastDurationMs(CUSTOM_TEST_DURATION_MS));
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -38,7 +38,7 @@ public class ToastAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testShowAsToastQuickly() throws Throwable {
         showAsToastQuickly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(getFullToastDurationMs(ToastAnimations.VIEW_SHOW_DURATION_QUICK));
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -50,17 +50,13 @@ public class ToastAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testShowAsToastSlowly() throws Throwable {
         showAsToastSlowly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(getFullToastDurationMs(ToastAnimations.VIEW_SHOW_DURATION_SLOW));
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
     @Test
     public void testShowAsToastSlowlyWithInterpolator() {
         // TODO Find a way to test interpolator.
-    }
-
-    private long getFullToastDurationMs(long viewDisplayDurationMs) {
-        return 2 * ToastAnimations.FADE_DURATION + viewDisplayDurationMs;
     }
 
 }

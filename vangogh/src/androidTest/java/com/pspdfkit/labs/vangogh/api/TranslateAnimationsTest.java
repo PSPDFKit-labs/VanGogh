@@ -27,7 +27,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateTo() throws InterruptedException {
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -35,7 +35,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateToWithDuration() throws InterruptedException {
         translateTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -53,7 +53,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateQuicklyTo() throws InterruptedException {
         translateQuicklyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
+        o.await();
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -66,7 +66,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateSlowlyTo() throws InterruptedException {
         translateSlowlyTo(view, TRANSLATE_TO_X_VALUE, TRANSLATE_TO_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
+        o.await();
         assertEquals(TRANSLATE_TO_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_TO_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -79,7 +79,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateBy() throws InterruptedException {
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -87,7 +87,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateByWithDuration() throws InterruptedException {
         translateBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -105,7 +105,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateQuicklyBy() throws InterruptedException {
         translateQuicklyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_QUICK);
+        o.await();
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }
@@ -118,7 +118,7 @@ public class TranslateAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testTranslateSlowlyBy() throws InterruptedException {
         translateSlowlyBy(view, TRANSLATE_BY_X_VALUE, TRANSLATE_BY_Y_VALUE).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_SLOW);
+        o.await();
         assertEquals(TRANSLATE_BY_X_VALUE, view.getTranslationX(), 0.1f);
         assertEquals(TRANSLATE_BY_Y_VALUE, view.getTranslationY(), 0.1f);
     }

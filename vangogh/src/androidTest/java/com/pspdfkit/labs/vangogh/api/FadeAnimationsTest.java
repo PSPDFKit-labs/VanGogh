@@ -5,9 +5,6 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_DEFAULT;
-import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_QUICK;
-import static com.pspdfkit.labs.vangogh.api.AnimationConstants.DURATION_SLOW;
 import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeIn;
 import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeInQuickly;
 import static com.pspdfkit.labs.vangogh.api.FadeAnimations.fadeInSlowly;
@@ -29,7 +26,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeIn(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
@@ -43,7 +40,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeIn(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
@@ -66,7 +63,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeInQuickly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(DURATION_QUICK);
+        o.await();
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
@@ -84,7 +81,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeInSlowly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(DURATION_SLOW);
+        o.await();
         assertEquals(1f, view.getAlpha(), 0f);
     }
 
@@ -102,7 +99,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeOut(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(AnimationConstants.DURATION_DEFAULT);
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -115,7 +112,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeOut(view, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -132,7 +129,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
     @Test
     public void testFadeOutQuickly() throws Throwable {
         fadeOutQuickly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(DURATION_QUICK);
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -150,7 +147,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeOutSlowly(view).subscribe(o);
-        assertTestObserverCompletedAfterDuration(DURATION_SLOW);
+        o.await();
         assertEquals(0f, view.getAlpha(), 0f);
     }
 
@@ -168,7 +165,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeToAlpha(view, .7f).subscribe(o);
-        assertTestObserverCompletedAfterDuration(DURATION_DEFAULT);
+        o.await();
         assertEquals(.7f, view.getAlpha(), 0f);
     }
 
@@ -181,7 +178,7 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
             }
         });
         fadeToAlpha(view, .7f, CUSTOM_TEST_DURATION_MS).subscribe(o);
-        assertTestObserverCompletedAfterDuration(CUSTOM_TEST_DURATION_MS);
+        o.await();
         assertEquals(.7f, view.getAlpha(), 0f);
     }
 

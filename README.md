@@ -1,6 +1,6 @@
 <img src="/art/van-gogh-logo-light.png" width="360px"/> 
 
-[![Build Status](https://travis-ci.org/PSPDFKit-labs/VanGogh.svg?branch=master)](https://travis-ci.org/PSPDFKit-labs/VanGogh)
+<!--[![Build Status](https://travis-ci.org/PSPDFKit-labs/VanGogh.svg?branch=master)](https://travis-ci.org/PSPDFKit-labs/VanGogh)-->
 
 *Great things are done by a series of small things brought together. RxJava meets Animations.*
 

@@ -36,6 +36,8 @@ dependencies {
     androidTestImplementation libraries.espressoCore
     androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
     androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestImplementation libraries.androidXTestRunner
+    androidTestImplementation libraries.androidXJUnit
 
     // Test dependencies
     testImplementation libraries.junit

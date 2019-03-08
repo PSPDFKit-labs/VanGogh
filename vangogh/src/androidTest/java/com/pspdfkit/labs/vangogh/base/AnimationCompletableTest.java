@@ -1,7 +1,7 @@
 package com.pspdfkit.labs.vangogh.base;
 
 import androidx.annotation.NonNull;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import android.view.View;
 
 import com.pspdfkit.labs.vangogh.api.BaseAnimationsTest;

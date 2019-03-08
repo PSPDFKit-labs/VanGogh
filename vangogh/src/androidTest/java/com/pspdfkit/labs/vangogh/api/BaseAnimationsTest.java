@@ -1,11 +1,12 @@
 package com.pspdfkit.labs.vangogh.api;
 
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 import android.view.View;
 
 import com.pspdfkit.labs.vangogh.view.TestActivity;
 
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.TestObserver;
 
@@ -20,11 +21,11 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseAnimationsTest {
 
     /** Used for testing animations with custom duration. */
-    protected static final long CUSTOM_TEST_DURATION_MS = 1300L;
+    static final long CUSTOM_TEST_DURATION_MS = 1300L;
 
     /** Activity rule for the {@link TestActivity} that holds the view to be animated. */
     @Rule
-    public ActivityTestRule<TestActivity> activityRule = new ActivityTestRule<>(TestActivity.class);
+    public ActivityScenarioRule<TestActivity> activityScenarioRule = new ActivityScenarioRule<>(TestActivity.class);
 
     /** View being animated in tests. */
     @NonNull
@@ -36,7 +37,12 @@ public abstract class BaseAnimationsTest {
 
     @Before
     public void setUp() {
-        view = activityRule.getActivity().findViewById(com.pspdfkit.labs.vangogh.test.R.id.view);
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
+            @Override
+            public void perform(TestActivity activity) {
+                view = activity.findViewById(com.pspdfkit.labs.vangogh.test.R.id.view);
+            }
+        });
         o = new TestObserver();
         o.assertNotSubscribed();
         o.assertNotComplete();
@@ -52,7 +58,7 @@ public abstract class BaseAnimationsTest {
      * Tests that the test observer was completed after specified duration, but not before.
      * @param durationMs Duration in millis.
      */
-    protected void assertTestObserverCompletedAfterDuration(long durationMs) throws InterruptedException {
+    void assertTestObserverCompletedAfterDuration(long durationMs) throws InterruptedException {
         o.await(durationMs / 2, TimeUnit.MILLISECONDS);
         o.assertNotComplete();
         // Sometimes the duration is too small of a number, so increase wait time to at least two seconds.

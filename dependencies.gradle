@@ -6,14 +6,15 @@ ext.versions = [
         androidGradlePlugin: '3.3.2',
 
         // Dependencies
-        supportLibs        : '1.0.0-beta01',
+        androidX           : '1.0.0',
         rxJava             : '2.2.7',
         rxAndroid          : '2.1.1',
 
         // Test dependencies
         junit              : '4.12',
         espresso           : '3.1.0-alpha4',
-        robolectric        : '3.4.2'
+        robolectric        : '3.4.2',
+        androidXTestRunner : '1.1.0'
 ]
 
 ext.gradlePlugins = [
@@ -22,12 +23,15 @@ ext.gradlePlugins = [
 
 ext.libraries = [
         // Dependencies
-        rxJava          : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
-        rxAndroid       : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
-        supportAppCompat: "androidx.appcompat:appcompat:$versions.supportLibs",
+        rxJava              : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+        rxAndroid           : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        supportAppCompat    : "androidx.appcompat:appcompat:$versions.androidX",
+        androidXAnnotation  : "androidx.annotation:annotation:$versions.androidX",
 
         // Test dependencies
-        junit           : "junit:junit:$versions.junit",
-        espressoCore    : "androidx.test.espresso:espresso-core:$versions.espresso",
-        robolectric     : "org.robolectric:robolectric:$versions.robolectric",
+        androidXTestRunner  : "androidx.test:runner:$versions.androidXTestRunner",
+        androidXJUnit       : "androidx.test.ext:junit:$versions.androidXTestRunner",
+        junit               : "junit:junit:$versions.junit",
+        espressoCore        : "androidx.test.espresso:espresso-core:$versions.espresso",
+        robolectric         : "org.robolectric:robolectric:$versions.robolectric",
 ]

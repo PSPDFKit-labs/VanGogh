@@ -1,6 +1,6 @@
 package com.pspdfkit.labs.vangogh.api;
 
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.runner.AndroidJUnit4;
 
 import static com.pspdfkit.labs.vangogh.api.SpinAnimations.*;
 import static org.junit.Assert.assertEquals;

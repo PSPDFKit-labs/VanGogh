@@ -1,7 +1,7 @@
 package com.pspdfkit.labs.vangogh.api;
 
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
 import android.view.View;
 
 import com.pspdfkit.labs.vangogh.view.TestActivity;

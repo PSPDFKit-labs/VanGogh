@@ -8,7 +8,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -28,18 +28,18 @@ android {
 
 dependencies {
     // Library dependencies
-    compile libraries.supportAppCompat
-    compile libraries.rxJava
-    compile libraries.rxAndroid
+    implementation libraries.supportAppCompat
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
 
     // Android test dependencies
-    androidTestCompile libraries.espressoCore
-    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
-    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestImplementation libraries.espressoCore
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
 
     // Test dependencies
-    testCompile libraries.junit
-    testCompile libraries.robolectric
+    testImplementation libraries.junit
+    testImplementation libraries.robolectric
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

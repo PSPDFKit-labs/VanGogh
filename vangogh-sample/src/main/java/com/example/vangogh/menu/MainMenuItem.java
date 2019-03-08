@@ -1,7 +1,7 @@
 package com.example.vangogh.menu;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class MainMenuItem<T extends Activity> {
 

@@ -1,12 +1,12 @@
 package com.example.vangogh.samples;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.vangogh.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public abstract class SingleAnimationActivity extends AppCompatActivity {
 

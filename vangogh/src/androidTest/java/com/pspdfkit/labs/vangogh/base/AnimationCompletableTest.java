@@ -1,7 +1,7 @@
 package com.pspdfkit.labs.vangogh.base;
 
-import android.support.annotation.NonNull;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.annotation.NonNull;
+import androidx.test.runner.AndroidJUnit4;
 import android.view.View;
 
 import com.pspdfkit.labs.vangogh.api.BaseAnimationsTest;
@@ -9,7 +9,6 @@ import com.pspdfkit.labs.vangogh.rx.AnimationCompletable;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 
 import java.util.concurrent.TimeUnit;
 

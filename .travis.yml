@@ -1,35 +1,35 @@
-sudo: false
-
 language: android
-jdk: oraclejdk8
 
-android:
-  components:
-    - platform-tools
-    - tools
-    - android-22
-    - build-tools-23.0.3
-    - extra-android-m2repository
-    - extra-android-support
-    - sys-img-armeabi-v7a-android-22
+jdk:
+- oraclejdk8
 
-before_install:
-- mkdir "$ANDROID_HOME/licenses" || true
-- echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"
-- chmod +x gradlew
+install:
+- echo yes | sdkmanager "tools" &>/dev/null
+- echo yes | sdkmanager "platform-tools" &>/dev/null
+- echo yes | sdkmanager "build-tools;28.0.1" &>/dev/null
+- echo yes | sdkmanager "platforms;android-28" &>/dev/null
 
 before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &=
 
-install: travis_wait 30
+script:
+- ./gradlew clean testDebug lintDebug --stacktrace
 
-notifications:
-  email: true
+branches:
+  except:
+  - gh-pages
+
+sudo: false
+
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
-    - $HOME/.m2
-    - $HOME/.gradle
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache

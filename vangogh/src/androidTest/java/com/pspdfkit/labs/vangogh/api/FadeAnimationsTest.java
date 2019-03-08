@@ -1,6 +1,9 @@
 package com.pspdfkit.labs.vangogh.api;
 
-import android.support.test.runner.AndroidJUnit4;
+import com.pspdfkit.labs.vangogh.view.TestActivity;
+
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,9 +25,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeIn() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });
@@ -36,9 +39,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeInWithDuration() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });
@@ -59,9 +62,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeInQuickly() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });
@@ -77,9 +80,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeInSlowly() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });
@@ -95,9 +98,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeOut() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(1f);
             }
         });
@@ -108,9 +111,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeOutWithDuration() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(1f);
             }
         });
@@ -143,9 +146,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeOutSlowly() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(1f);
             }
         });
@@ -161,9 +164,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeToAlpha() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });
@@ -174,9 +177,9 @@ public class FadeAnimationsTest extends BaseAnimationsTest {
 
     @Test
     public void testFadeToAlphaWithDuration() throws Throwable {
-        activityRule.runOnUiThread(new Runnable() {
+        activityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
-            public void run() {
+            public void perform(TestActivity activity) {
                 view.setAlpha(0f);
             }
         });

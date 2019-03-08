@@ -1,7 +1,8 @@
 package com.example.vangogh.samples;
 
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import io.reactivex.functions.Consumer;
 

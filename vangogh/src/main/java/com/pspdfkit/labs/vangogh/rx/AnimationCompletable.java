@@ -1,8 +1,8 @@
 package com.pspdfkit.labs.vangogh.rx;
 
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewPropertyAnimatorCompat;
+import androidx.core.view.ViewPropertyAnimatorListener;
 import android.view.View;
 import com.pspdfkit.labs.vangogh.base.Animation;
 import io.reactivex.Completable;

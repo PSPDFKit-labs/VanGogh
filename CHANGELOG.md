@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+Version 0.3.0 *(2019-05-15)*
+----------------------------
+* AndroidX support. ([#28](https://github.com/PSPDFKit-labs/VanGogh/pull/28))
+
 Version 0.2.0 *(2017-11-27)*
 ----------------------------
 * *Important:* Duration is no more pre-determined by the library but uses the default duration defined by Android in `ValueAnimator`. Quick animations use 60% of that duration value and slow animations use 300%. ([#20](https://github.com/PSPDFKit-labs/VanGogh/issues/20))

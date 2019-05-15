@@ -1,5 +1,7 @@
 package com.pspdfkit.labs.vangogh.rx;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
@@ -7,8 +9,6 @@ import android.view.View;
 import com.pspdfkit.labs.vangogh.base.Animation;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -37,13 +37,13 @@ public final class AnimationCompletable extends Completable implements OnAnimati
     @Nullable private ViewPropertyAnimatorCompat animator;
 
     /** Tracks whether the animation is still running. */
-    @Nullable private boolean isAnimationRunning = false;
+    private boolean isAnimationRunning = false;
 
     /**
      * Creates completable that runs provided animation once subscribed to.
      * @param animation Animation to run when subscribed.
      */
-    public AnimationCompletable(Animation animation) {
+    public AnimationCompletable(@NonNull Animation animation) {
         this.animation = animation;
     }
 

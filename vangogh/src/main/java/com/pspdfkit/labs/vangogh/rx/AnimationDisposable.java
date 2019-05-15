@@ -1,7 +1,8 @@
 package com.pspdfkit.labs.vangogh.rx;
 
+import androidx.annotation.NonNull;
+
 import io.reactivex.android.MainThreadDisposable;
-import io.reactivex.annotations.NonNull;
 
 /**
  * Represents disposable resource for animations.
@@ -15,15 +16,13 @@ public final class AnimationDisposable extends MainThreadDisposable {
      * Creates disposable that can notify the listener when disposed.
      * @param onAnimationDisposedListener Listener being notified when this disposable is disposed.
      */
-    public AnimationDisposable(OnAnimationDisposedListener onAnimationDisposedListener) {
+    public AnimationDisposable(@NonNull OnAnimationDisposedListener onAnimationDisposedListener) {
         this.onAnimationDisposedListener = onAnimationDisposedListener;
     }
 
     @Override
     protected void onDispose() {
-        if (onAnimationDisposedListener != null) {
-            onAnimationDisposedListener.onAnimationDisposed();
-        }
+        onAnimationDisposedListener.onAnimationDisposed();
     }
 
 }

@@ -1,7 +1,8 @@
 package com.pspdfkit.labs.vangogh.rx;
 
 /**
- * Listener used to notify that the animation has been disposed, more precisely {@link AnimationDisposable}.
+ * Listener used to notify that the animation has been
+ * disposed, more precisely {@link AnimationDisposable}.
  */
 interface OnAnimationDisposedListener {
 

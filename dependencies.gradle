@@ -3,7 +3,7 @@ ext.versions = [
         targetSdk          : 28,
         compileSdk         : 28,
         buildTools         : '28.0.3',
-        androidGradlePlugin: '3.3.2',
+        androidGradlePlugin: '3.4.0',
 
         // Dependencies
         androidX           : '1.0.0',

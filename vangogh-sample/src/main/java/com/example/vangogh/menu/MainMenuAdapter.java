@@ -41,12 +41,9 @@ public class MainMenuAdapter extends ArrayAdapter<MainMenuItem> {
         itemDesc.setText(item.getDesc());
 
         final LinearLayout itemLayout = convertView.findViewById(R.id.itemLayout);
-        itemLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onMainMenuItemClicked(item);
-                }
+        itemLayout.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onMainMenuItemClicked(item);
             }
         });
 

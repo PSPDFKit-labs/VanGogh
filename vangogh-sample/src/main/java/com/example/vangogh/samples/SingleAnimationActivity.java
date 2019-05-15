@@ -3,7 +3,6 @@ package com.example.vangogh.samples;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 
 import com.example.vangogh.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,12 +16,7 @@ public abstract class SingleAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_animation);
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onFabClicked(fab);
-            }
-        });
+        fab.setOnClickListener(v -> onFabClicked(fab));
     }
 
     protected abstract void onFabClicked(FloatingActionButton fab);
